@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            background-color: #f3f3f3;
+            font-family: "Trebuchet MS", sans-serif;
+        }
+
+        .body-container {
+            margin: 0.5% 12%;
+            background-color: #ffffff;
+            border: 0px solid #ccc;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            height: 60px;
+            background-color: #ffffff;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(to right, #fc5447, #ffa49b) 30;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body-container">
+        <header>
+            <div class="header-logo-top" style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;">
+                <img src="media/images/school-logo-colored.png" style="width: 40px; height: 50px;">
+                <p style="padding-left: 10px; color: #fc5447; font-size: 120%;"><b>Colegio XYZ </b></p>
+            </div>
+            <div class="header-right" style="
+                position: absolute;
+                top: 50%;
+                right: 20px; 
+                transform: translateY(-50%); 
+                ">
+                <a href="modules/user/login.html"><button class="header-button" style="
+                background: linear-gradient(to bottom right, #fc5447, #ffa49b);
+                color: #ffffff;
+                border: none; 
+                border-radius: 15px;
+                padding: 10px 20px; 
+                cursor: pointer; 
+                font-size: 16px;">Inicio</button></a>
+
+        </div>
+        </header>
+        <section>
+            <div class="landing-portada-container" style="clip-path: polygon(100% 0, 100% 75%, 50% 90%, 0 75%, 0 0);">
+                <img src="media/images/landing-portada.jpg" style="max-width: 100%;">
+            </div>
+        </section>
+        <h1>Bienvenido a nuestra Landing Page</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante
+            dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+    </div>
+</body>
+
+</html>
