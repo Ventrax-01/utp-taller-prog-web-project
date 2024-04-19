@@ -14,7 +14,7 @@ Al final del curso, las tecnologías a utilizar serán:
 ## Jerarquía de Archivos
 
 ```
-project-admin-school/
+project_directory/
 │
 ├── css/
 │ └── styles.css
