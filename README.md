@@ -1,2 +1,2 @@
-# utp-taller-prog-web-proyect
+# utp-taller-prog-web-project
 Proyecto - Taller de Programacion Web
