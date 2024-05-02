@@ -1,76 +1,47 @@
+
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTAL DEL ALUMNO</title>
-    <style>
-        /* Estilos CSS */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: white;
-        }
-        .header {
-            background: linear-gradient(to bottom right, #fc5447, #fe9187);
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-            border-bottom: 1px solid black;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 1.5em;
-        }
-        .options {
-            text-align: left;
-            margin-top: 0;
-            padding: 10px 20px;
-            border-bottom: 1px solid black;
-            background: linear-gradient(to bottom right, #fc5447, #fe9187);
-        }
-        .options a {
-            text-decoration: none;
-            color: black;
-            margin-right: 20px;
-            font-size: 0.8em;
-        }
-        .options a:last-child {
-            margin-right: 0;
-        }
-        .options a:hover {
-            background-color: lightgray;
-        }
-        .content {
-            padding: 20px;
-            text-align: left;
-            line-height: 1.6;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            margin: 20px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Cabecera -->
-    <div class="header">
-        <h1>PORTAL DEL ESTUDIANTE</h1>
-    </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/topbar.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="../../assets/images/school-logo.png"
+          alt="Logo del colegio"
+          width="50"
+          height="60"
+        />
+      </div>
+      <div class="btn-top">
+        <button>Perfil</button>
+        <button>Cursos</button>
+        <button>Horarios</button>
+        <button>Profesores</button>
+      </div>
 
-    <!-- Opciones para el alumno -->
-    <div class="options">
-        <a href="#">INFORMACIÓN DEL ESTUDIANTE</a>
-        <a href="#">CURSOS</a>
-        <a href="#">HORARIOS</a>
-        <a href="#">PROFESORES</a>
-    </div>
-
-    <!-- Contenido -->
-    <div class="content">
-        <p>Estimado estudiante, dentro de esta página podrás ver tu información personal como:</p>
-        <p>Grado, sección, cursos matriculados, tus horarios y los profesores que tienes en este año escolar.</p>
-        <p>Te deseamos mucha suerte.</p>
-    </div>
-</body>
+      <div class="navbar-right">
+        <p><b>Panel de Alumno</b></p>
+        <div class="hr-userdata-separator" style="height: 30px"></div>
+        <div class="hr-userdata">
+          <p style="margin-bottom: -2px">Hola, <b>Alonso Giraldo</b></p>
+          <p>u23232870@utp.edu.pe</p>
+        </div>
+        <div class="logout-button" style="padding: 0px 15px">
+          <a href="../../index.html">
+            <img
+              src="../../assets/images/logout_logo.png"
+              alt="logout"
+              width="35px"
+              height="35px"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+  </body>
 </html>

@@ -1,0 +1,74 @@
+body {
+  font-family: "Trebuchet MS", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: linear-gradient(to bottom right, #fc5447, #fe9187);
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+}
+
+.logo {
+  display: inline-block;
+  padding: 5px 0px 5px 13px;
+}
+
+.btn-top {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.btn-top button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 110%;
+  color: inherit;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 8px 18px;
+  margin: 0px 3px;
+  transition: color 0.3s, background-color 0.3s; 
+}
+
+.btn-top button:hover {
+  color: white;
+  background-color: #fe9187;
+}
+
+.logo img {
+  filter: brightness(0) invert(1);
+}
+
+.navbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+div.hr-userdata-separator {
+  width: 1px;
+  background-color: rgb(228, 228, 228);
+  height: 100%;
+  float: left;
+  border: 1px;
+  margin: 0px 20px;
+}
+
+.hr-userdata {
+  display: inline-block;
+}
+
+.hr-userdata p {
+  margin: 5px 0;
+}
+
+div.logout-button a img,
+div.logo img {
+  filter: brightness(0) invert(1);
+}
