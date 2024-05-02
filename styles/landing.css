@@ -1,0 +1,6 @@
+
+.linea-horizontal {
+    width: 75%; /* Ancho de la línea horizontal */
+    margin: 0 auto; /* Centrar la línea horizontal */
+    opacity: 20%;
+  }

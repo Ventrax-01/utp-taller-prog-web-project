@@ -1,120 +1,47 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Panel - Colegio XYZ</title>
-  <style>
-    body {
-      font-family: "Trebuchet MS", sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: linear-gradient(to bottom right, #fc5447, #fe9187);
-      display: flex;
-      color: #ffffff;
-    }
-
-    div.logo {
-      padding: 5px 13px;
-    }
-
-    div.logout-button a img,
-    div.logo img {
-      filter: brightness(0) invert(1);
-    }
-
-    div.nav-options {
-      display: flex;
-      align-items: center;
-      padding-left: 20px;
-    }
-
-    div.header-right {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-    }
-
-    div.nav-options nav ul {
-      padding-left: 0px;
-    }
-
-    div.nav-options nav ul a {
-      color: inherit;
-      text-decoration: none;
-      font-size: 110%;
-    }
-
-    div.nav-options nav ul li {
-      display: inline;
-      margin-right: 25px;
-    }
-
-    div.hr-userdata-separator {
-      width: 1px;
-      background-color: rgb(228, 228, 228);
-      height: 100%;
-      float: left;
-      border: 1px;
-      margin: 0px 20px;
-    }
-
-    .hr-userdata {
-      display: inline-block;
-    }
-
-    .hr-userdata p {
-      margin: 5px 0;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <div class="logo">
-      <img src="../../media/images/school-logo.png" alt="Logo del colegio" width="50" height="60" />
-    </div>
-
-    <div class="nav-options">
-      <nav>
-        <ul>
-          <li>
-            <b><a href="#">Inicio</a></b>
-          </li>
-          <li>
-            <b><a href="#">Alumnos</a></b>
-          </li>
-          <li>
-            <b><a href="#">Profesores</a></b>
-          </li>
-          <li>
-            <b><a href="#">Grados</a></b>
-          </li>
-          <li>
-            <b><a href="#">Cursos</a></b>
-          </li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="header-right">
-      <p><b>Panel de Administrador</b></p>
-      <div class="hr-userdata-separator" style="height: 30px"></div>
-      <div class="hr-userdata">
-        <p style="margin-bottom: -2px">Hola, <b>Alonso Giraldo</b></p>
-        <p>u23232870@utp.edu.pe</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../styles/topbar.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="../../assets/images/school-logo.png"
+          alt="Logo del colegio"
+          width="50"
+          height="60"
+        />
       </div>
-      <div class="logout-button" style="padding: 0px 15px">
-        <a href="../../index.html">
-          <img src="../../media/images/logout_logo.png" alt="logout" width="35px" height="35px" />
-        </a>
+      <div class="btn-top">
+        <button>Inicio</button>
+        <button>Alumnos</button>
+        <button>Profesores</button>
+        <button>Grados</button>
+        <button>Cursos</button>
       </div>
-    </div>
-  </header>
-</body>
 
+      <div class="navbar-right">
+        <p><b>Panel de Administrador</b></p>
+        <div class="hr-userdata-separator" style="height: 30px"></div>
+        <div class="hr-userdata">
+          <p style="margin-bottom: -2px">Hola, <b>Alonso Giraldo</b></p>
+          <p>u23232870@utp.edu.pe</p>
+        </div>
+        <div class="logout-button" style="padding: 0px 15px">
+          <a href="../../index.html">
+            <img
+              src="../../assets/images/logout_logo.png"
+              alt="logout"
+              width="35px"
+              height="35px"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+  </body>
 </html>
