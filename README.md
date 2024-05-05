@@ -16,13 +16,13 @@ Al final del curso, las tecnologías a utilizar serán:
 ```
 project_directory/
 │
-├── css/
+├── styles/
 │ └── styles.css
 │
-├── js/
+├── scripts/
 │ └── script.js
 │
-├── media/
+├── assets/
 │ ├── images/
 │ │ └── (imagenes)
 │ ├── videos/
