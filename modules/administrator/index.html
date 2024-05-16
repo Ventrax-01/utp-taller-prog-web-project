@@ -1,47 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../../styles/topbar.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="/styles/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="/styles/modules-navbar.css" />
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <img
-          src="../../assets/images/school-logo.png"
-          alt="Logo del colegio"
-          width="50"
-          height="60"
-        />
-      </div>
-      <div class="btn-top">
-        <button>Inicio</button>
-        <button>Alumnos</button>
-        <button>Profesores</button>
-        <button>Grados</button>
-        <button>Cursos</button>
-      </div>
+    <nav
+      class="navbar navbar-custom border-bottom border-body"
+      aria-label="Dark offcanvas navbar"
+    >
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler custom-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbarDark"
+          aria-controls="offcanvasNavbarDark"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Dark offcanvas navbar</a>
 
-      <div class="navbar-right">
-        <p><b>Panel de Administrador</b></p>
-        <div class="hr-userdata-separator" style="height: 30px"></div>
-        <div class="hr-userdata">
-          <p style="margin-bottom: -2px">Hola, <b>Alonso Giraldo</b></p>
-          <p>u23232870@utp.edu.pe</p>
-        </div>
-        <div class="logout-button" style="padding: 0px 15px">
-          <a href="../../index.html">
-            <img
-              src="../../assets/images/logout_logo.png"
-              alt="logout"
-              width="35px"
-              height="35px"
-            />
-          </a>
+        <div
+          class="offcanvas offcanvas-start custom-offcanvas "
+          tabindex="-1"
+          id="offcanvasNavbarDark"
+          aria-labelledby="offcanvasNavbarDarkLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">
+              Offcanvas
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Alumnos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Profesores</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cursos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Grados</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Finanzas</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </header>
+    </nav>
+
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+        <div class="col">Column</div>
+      </div>
+    </div>
+    <script src="/styles/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

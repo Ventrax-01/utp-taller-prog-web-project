@@ -1,0 +1,13 @@
+.navbar-custom{
+    background: linear-gradient(to bottom right, #fc5447, #fe9187);
+}
+
+
+.custom-toggler.navbar-toggler {
+    border: none;
+}
+
+.custom-offcanvas.offcanvas {
+    background-color: #fc5447;
+    --bs-offcanvas-width: 200px; 
+}
