@@ -1,13 +1,40 @@
-.navbar-custom{
-    background: linear-gradient(to bottom right, #fc5447, #fe9187);
-}
-
-
-.custom-toggler.navbar-toggler {
-    border: none;
+.navbar-custom {
+  background: linear-gradient(to bottom right, #fc5447, #fe9187);
+  box-shadow: none;
 }
 
 .custom-offcanvas.offcanvas {
-    background-color: #fc5447;
-    --bs-offcanvas-width: 200px; 
+  background-color: #fc5447;
+  --bs-offcanvas-width: 200px;
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: #ffffff;
+}
+
+.custom-toggler.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+#exit-logo {
+  filter: brightness(0) invert(1);
+}
+
+.offcanvas-body a {
+  color: #ffffff;
+  font-weight: bold;
+  padding-left: 10px;
+  border-radius: 5px;
+  font-size: 110%;
+  margin: 10px 0px 5px 0px;
+  padding: 10px 5px 10px 5px; 
+}
+
+.offcanvas-body a:hover {
+  color: white;
+  background-color: #fe9187;
 }
