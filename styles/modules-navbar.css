@@ -1,40 +1,43 @@
-.navbar-custom {
-  background: linear-gradient(to bottom right, #fc5447, #fe9187);
-  box-shadow: none;
+body {
+  padding-top: 4.5rem;
 }
 
-.custom-offcanvas.offcanvas {
-  background-color: #fc5447;
-  --bs-offcanvas-width: 200px;
+.navbar-custom {
+  background: #ffffff;/*linear-gradient(to bottom right, #fc5447, #fe9187);*/
+  box-shadow: none;
+  border-bottom:#fc5447;
+  color:#fc5447;
+  box-shadow: 0 0px 5px 0px rgba(0,0,0,.2);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.email.row{
+  font-size:75%;
 }
 
 .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,87,51, 1)' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .custom-toggler.navbar-toggler {
-  border-color: #ffffff;
+  border-color: #fc5447;
 }
 
 .custom-toggler.navbar-toggler:focus {
   box-shadow: none !important;
 }
 
+.exit-logo-div {
+  border-radius: 35%;
+  border: 4px solid #fc5447;
+  background-color: #fc5447;
+}
+
 #exit-logo {
   filter: brightness(0) invert(1);
 }
 
-.offcanvas-body a {
-  color: #ffffff;
-  font-weight: bold;
-  padding-left: 10px;
-  border-radius: 5px;
-  font-size: 110%;
-  margin: 10px 0px 5px 0px;
-  padding: 10px 5px 10px 5px; 
-}
-
-.offcanvas-body a:hover {
-  color: white;
-  background-color: #fe9187;
+.navbar-data-text{
+  white-space: nowrap;
 }

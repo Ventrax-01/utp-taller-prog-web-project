@@ -1,0 +1,53 @@
+.offcanvas-body a {
+    font-weight: bold;
+    padding-left: 10px;
+    border-radius: 5px;
+    font-size: 120%;
+    padding: 0px 5px 20px 5px;
+    font-family: "Open Sans", "sans-serif";
+    
+}
+
+.offcanvas-header {
+    font-weight: bold;
+    padding: 11px 16px;
+    background-color: #fc5447;
+    font-family: "Open Sans";
+    color: #ffffff !important;
+}
+
+.offcanvas-body {
+    background-color: #ffffff;
+}
+
+.nav-link {
+    /* border-style:solid;
+    border-color: black;
+    border-width: 1px 0 0 0; 
+    background-color: #fc5447;*/
+    color: #000000 !important;
+}
+
+.custom-offcanvas.offcanvas {
+    --bs-offcanvas-width: 260px;
+}
+
+.fa-offcanvas-text{
+    padding-left: 15px;
+}
+.offcanvas-nav-link:hover {
+    color: #fe9187 !important;
+}
+
+.offcanvas-title {
+    padding-right: 20px;
+}
+
+.nav-item-icon {
+    white-space: nowrap;
+}
+
+.fa-offcanvas-logos{
+    /*padding:0px 40px 0px 0px;*/
+    font-size: 120%;
+}

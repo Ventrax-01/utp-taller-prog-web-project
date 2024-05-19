@@ -1,116 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
-    <link
-      href="/styles/bootstrap-5.3.3-dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Bootstrap demo</title>
+        <script
+            src="https://kit.fontawesome.com/c4f86b63aa.js"
+            crossorigin="anonymous"
+        ></script>
+        <link
+            href="/styles/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans"
+            rel="stylesheet"
+        />
 
-    <link rel="stylesheet" type="text/css" href="/styles/modules-navbar.css" />
-  </head>
-  <body>
-    <nav
-      class="navbar navbar-custom border-bottom border-body navbar-dark custom-toggler"
-      aria-label="Dark offcanvas navbar"
-    >
-      <div class="container-fluid">
-        <button
-          class="navbar-toggler custom-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbarDark"
-          aria-controls="offcanvasNavbarDark"
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/styles/modules-navbar.css"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="/styles/modules-offcanvas.css"
+        />
+        <link href="/modules/administrator/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav
+            class="navbar navbar-custom fixed-top border-bottom border-body navbar-dark custom-toggler"
+            aria-label="Dark offcanvas navbar"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div>
-          <div>
-            <div class="col-12 d-flex justify-content-end">
-              <div class="container text-center">
-                <div class="row">
-                  <div
-                    class="col text-white d-flex align-items-center"
-                    style="
-                      padding-right: 10px;
-                      border-right: 1px solid rgb(228, 228, 228);
-                      white-space: nowrap;
-                    "
-                  >
-                    <b>Panel de administrador</b>
-                  </div>
-                  <div class="col container text-start text-white">
-                    <div class="row"><b>Hola, Alonso Giraldo</b></div>
-                    <div class="row"><b>u23232870@utp.edu.pe</b></div>
-                  </div>
-                  <div class="col d-flex align-items-center">
-                    <img
-                      id="exit-logo"
-                      class="center-block"
-                      src="../../assets/images/logout_logo.png"
-                      alt="logout"
-                      width="35px"
-                      height="35px"
-                    />
-                  </div>
+            <div class="container-fluid">
+                <button
+                    class="navbar-toggler custom-toggler"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbarDark"
+                    aria-controls="offcanvasNavbarDark"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div>
+                    <div>
+                        <div class="col-12 d-flex justify-content-end">
+                            <div class="container text-center">
+                                <div class="row">
+                                    <div
+                                        class="col container text-middle navbar-data-text"
+                                    >
+                                        <div class="row">
+                                            <span
+                                                >Hola,
+                                                <b>Alonso Giraldo</b></span
+                                            >
+                                        </div>
+                                        <div class="row email">
+                                            <span>u23232870@utp.edu.pe</span>
+                                        </div>
+                                    </div>
+                                    <div class="col d-flex align-items-center">
+                                        <div class="exit-logo-div">
+                                            <img
+                                                id="exit-logo"
+                                                src="../../assets/images/logout_logo.png"
+                                                alt="logout"
+                                                width="35px"
+                                                height="35px"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+                <div
+                    class="offcanvas offcanvas-start custom-offcanvas"
+                    tabindex="-1"
+                    id="offcanvasNavbarDark"
+                    aria-labelledby="offcanvasNavbarDarkLabel"
+                >
+                    <div class="offcanvas-header">
+                        <h5
+                            class="offcanvas-title"
+                            id="offcanvasNavbarDarkLabel"
+                        >
+                            ADMINISTRACIÓN
+                        </h5>
+                        <button
+                            type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="offcanvas"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul
+                            class="navbar-nav justify-content-end flex-grow-1 pe-4"
+                        >
+                            <li class="nav-item">
+                                <a class="nav-link offcanvas-nav-link" href="#"
+                                    ><i
+                                        class="fa-solid fa-shapes fa-offcanvas-logos fa-fw"
+                                    ></i
+                                    ><span class="d-inline-block fa-offcanvas-text"
+                                        >Inicio</span
+                                    ></a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link d-inline-block offcanvas-nav-link"
+                                    href="#"
+                                >
+                                    <i
+                                        class="fa-solid fa-user-graduate fa-offcanvas-logos fa-fw"
+                                    ></i
+                                    ><span class="d-inline-block fa-offcanvas-text"
+                                        >Alumnos</span
+                                    ></a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link d-inline-block offcanvas-nav-link"
+                                    href="#"
+                                    ><i
+                                        class="fa-solid fa-person-chalkboard fa-offcanvas-logos fa-fw"
+                                    ></i
+                                    ><span class="d-inline-block fa-offcanvas-text"
+                                        >Profesores</span
+                                    ></a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link d-inline-block offcanvas-nav-link"
+                                    href="#"
+                                    ><i
+                                        class="fa-solid fa-book-open fa-offcanvas-logos fa-fw"
+                                    ></i
+                                    ><span class="d-inline-block fa-offcanvas-text"
+                                        >Cursos</span
+                                    ></a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link d-inline-block offcanvas-nav-link"
+                                    href="#"
+                                    ><i
+                                        class="fa-solid fa-school fa-offcanvas-logos fa-fw"
+                                    ></i
+                                    ><span class="d-inline-block fa-offcanvas-text"
+                                        >Grados</span
+                                    ></a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link d-inline-block offcanvas-nav-link"
+                                    href="#"
+                                    ><i
+                                        class="fa-solid fa-dollar-sign fa-offcanvas-logos fa-fw"
+                                    ></i
+                                    ><span class="d-inline-block fa-offcanvas-text"
+                                        >Finanzas</span
+                                    ></a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+        </nav>
 
-        <div
-          class="offcanvas offcanvas-start custom-offcanvas"
-          tabindex="-1"
-          id="offcanvasNavbarDark"
-          aria-labelledby="offcanvasNavbarDarkLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">
-              <b>Explora:</b>
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link" href="#">INICIO</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">ALUMNOS</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">PROFESORES</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">CURSOS</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">GRADOS</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">FINANZAS</a>
-              </li>
-            </ul>
-          </div>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+            </div>
         </div>
-      </div>
-    </nav>
-
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-        <div class="col">Column</div>
-      </div>
-    </div>
-    <script src="/styles/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
+        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
+        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
+        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
+        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
+        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
+        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
+        <script src="/styles/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>
