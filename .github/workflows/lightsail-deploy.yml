@@ -1,0 +1,33 @@
+name: Deploy to Lightsail
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install SSH client
+      run: sudo apt-get install -y openssh-client
+
+    - name: Add SSH key
+      env:
+        LIGHTSAIL_SSH_KEY: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$LIGHTSAIL_SSH_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.LIGHTSAIL_HOST }} >> ~/.ssh/known_hosts
+
+    - name: Git pull on Lightsail instance
+      env:
+        LIGHTSAIL_USER: ${{ secrets.LIGHTSAIL_USER }}
+        LIGHTSAIL_HOST: ${{ secrets.LIGHTSAIL_HOST }}
+      run: |
+        ssh $LIGHTSAIL_USER@$LIGHTSAIL_HOST "cd /var/www/xyz.lucianogiraldo.com && git pull origin main"
