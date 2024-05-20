@@ -16,11 +16,9 @@ jobs:
     - name: Install SSH client
       run: sudo apt-get install -y openssh-client
 
-    - name: print out example job
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.LIGHTSAIL_HOST }}
-        username: ${{ secrets.LIGHTSAIL_USER }}
-        key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
-        script: | 
-          echo "Nice Job!!!"
+    - name: Git pull on Lightsail instance
+      env:
+        LIGHTSAIL_USER: ${{ secrets.LIGHTSAIL_USER }}
+        LIGHTSAIL_HOST: ${{ secrets.LIGHTSAIL_HOST }}
+      run: |
+        ssh secrets.LIGHTSAIL_USER@secrets.LIGHTSAIL_HOST -i secrets.LIGHTSAIL_SSH_KEY "cd /var/www/xyz.lucianogiraldo.com && git pull origin main"
