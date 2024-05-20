@@ -20,5 +20,6 @@ jobs:
       env:
         LIGHTSAIL_USER: ${{ secrets.LIGHTSAIL_USER }}
         LIGHTSAIL_HOST: ${{ secrets.LIGHTSAIL_HOST }}
+        LIGHTSAIL_SSH_KEY: ${{ secrets.LIGHTSAIL_SSH_KEY }}
       run: |
-        ssh $secrets.LIGHTSAIL_USER@$secrets.LIGHTSAIL_HOST -i $secrets.LIGHTSAIL_SSH_KEY "cd /var/www/xyz.lucianogiraldo.com && git pull origin main"
+        ssh $LIGHTSAIL_USER@$LIGHTSAIL_HOST -i $LIGHTSAIL_SSH_KEY "cd /var/www/xyz.lucianogiraldo.com && git pull origin main"
