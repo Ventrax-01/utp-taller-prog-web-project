@@ -26,4 +26,5 @@ jobs:
         echo "$LIGHTSAIL_SSH_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H $LIGHTSAIL_HOST >> ~/.ssh/known_hosts
+        echo "Test"
         ssh -i ~/.ssh/id_rsa $LIGHTSAIL_USER@$LIGHTSAIL_HOST "cd /var/www/xyz.lucianogiraldo.com && git pull origin main"
