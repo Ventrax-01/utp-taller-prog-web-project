@@ -1,0 +1,26 @@
+.homepage-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.homepage-top-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff2f2;
+    flex-direction: column;
+    
+}
+.homepage-top-text {
+    width: 80%;
+    font-family: "Schibsted Grotesk", sans-serif;
+}
+
+.htt-text1{
+    font-size: 3.7vw;
+}
+
+.homepage-top-img{
+    max-width: 45%;
+    background-color: #fff2f2;
+}

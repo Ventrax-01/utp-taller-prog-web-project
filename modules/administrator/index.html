@@ -1,205 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Bootstrap demo</title>
-        <script
-            src="https://kit.fontawesome.com/c4f86b63aa.js"
-            crossorigin="anonymous"
-        ></script>
-        <link
-            href="/styles/bootstrap-5.3.3-dist/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans"
-            rel="stylesheet"
-        />
 
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="/styles/modules-navbar.css"
-        />
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="/styles/modules-offcanvas.css"
-        />
-        <link href="/modules/administrator/styles.css" rel="stylesheet" />
-    </head>
-    <body>
-        <nav
-            class="navbar navbar-custom fixed-top border-bottom border-body navbar-dark custom-toggler"
-            aria-label="Dark offcanvas navbar"
-        >
-            <div class="container-fluid">
-                <button
-                    class="navbar-toggler custom-toggler"
-                    type="button"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbarDark"
-                    aria-controls="offcanvasNavbarDark"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <script src="https://kit.fontawesome.com/c4f86b63aa.js" crossorigin="anonymous"></script>
+    <link href="/styles/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="/styles/modules-navbar.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/modules-offcanvas.css" />
+    <link href="/modules/administrator/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-custom fixed-top border-bottom border-body navbar-dark custom-toggler"
+        aria-label="Dark offcanvas navbar">
+        <div class="container-fluid">
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div>
                 <div>
-                    <div>
-                        <div class="col-12 d-flex justify-content-end">
-                            <div class="container text-center">
-                                <div class="row">
-                                    <div
-                                        class="col container text-middle navbar-data-text"
-                                    >
-                                        <div class="row">
-                                            <span
-                                                >Hola,
-                                                <b>Alonso Giraldo</b></span
-                                            >
-                                        </div>
-                                        <div class="row email">
-                                            <span>u23232870@utp.edu.pe</span>
-                                        </div>
+                    <div class="col-12 d-flex justify-content-end">
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col container text-middle navbar-data-text">
+                                    <div class="row">
+                                        <span>Hola,
+                                            <b>Alonso Giraldo</b></span>
                                     </div>
-                                    <div class="col d-flex align-items-center">
-                                        <div class="exit-logo-div">
-                                            <img
-                                                id="exit-logo"
-                                                src="../../assets/images/logout_logo.png"
-                                                alt="logout"
-                                                width="35px"
-                                                height="35px"
-                                            />
-                                        </div>
+                                    <div class="row email">
+                                        <span>u23232870@utp.edu.pe</span>
+                                    </div>
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <div class="exit-logo-div">
+                                        <img id="exit-logo" src="../../assets/images/logout_logo.png" alt="logout"
+                                            width="35px" height="35px" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div
-                    class="offcanvas offcanvas-start custom-offcanvas"
-                    tabindex="-1"
-                    id="offcanvasNavbarDark"
-                    aria-labelledby="offcanvasNavbarDarkLabel"
-                >
-                    <div class="offcanvas-header">
-                        <h5
-                            class="offcanvas-title"
-                            id="offcanvasNavbarDarkLabel"
-                        >
-                            ADMINISTRACIÓN
-                        </h5>
-                        <button
-                            type="button"
-                            class="btn-close btn-close-white"
-                            data-bs-dismiss="offcanvas"
-                            aria-label="Close"
-                        ></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul
-                            class="navbar-nav justify-content-end flex-grow-1 pe-4"
-                        >
-                            <li class="nav-item">
-                                <a class="nav-link offcanvas-nav-link" href="#"
-                                    ><i
-                                        class="fa-solid fa-shapes fa-offcanvas-logos fa-fw"
-                                    ></i
-                                    ><span
-                                        class="d-inline-block fa-offcanvas-text"
-                                        >Inicio</span
-                                    ></a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link d-inline-block offcanvas-nav-link"
-                                    href="#"
-                                >
-                                    <i
-                                        class="fa-solid fa-user-graduate fa-offcanvas-logos fa-fw"
-                                    ></i
-                                    ><span
-                                        class="d-inline-block fa-offcanvas-text"
-                                        >Alumnos</span
-                                    ></a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link d-inline-block offcanvas-nav-link"
-                                    href="#"
-                                    ><i
-                                        class="fa-solid fa-person-chalkboard fa-offcanvas-logos fa-fw"
-                                    ></i
-                                    ><span
-                                        class="d-inline-block fa-offcanvas-text"
-                                        >Profesores</span
-                                    ></a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link d-inline-block offcanvas-nav-link"
-                                    href="#"
-                                    ><i
-                                        class="fa-solid fa-book-open fa-offcanvas-logos fa-fw"
-                                    ></i
-                                    ><span
-                                        class="d-inline-block fa-offcanvas-text"
-                                        >Cursos</span
-                                    ></a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link d-inline-block offcanvas-nav-link"
-                                    href="#"
-                                    ><i
-                                        class="fa-solid fa-school fa-offcanvas-logos fa-fw"
-                                    ></i
-                                    ><span
-                                        class="d-inline-block fa-offcanvas-text"
-                                        >Grados</span
-                                    ></a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link d-inline-block offcanvas-nav-link"
-                                    href="#"
-                                    ><i
-                                        class="fa-solid fa-dollar-sign fa-offcanvas-logos fa-fw"
-                                    ></i
-                                    ><span
-                                        class="d-inline-block fa-offcanvas-text"
-                                        >Finanzas</span
-                                    ></a
-                                >
-                            </li>
-                        </ul>
-                    </div>
+            <div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="offcanvasNavbarDark"
+                aria-labelledby="offcanvasNavbarDarkLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">
+                        ADMINISTRACIÓN
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-4">
+                        <li class="nav-item">
+                            <a class="nav-link offcanvas-nav-link" href="#"><i
+                                    class="fa-solid fa-shapes fa-offcanvas-logos fa-fw"></i><span
+                                    class="d-inline-block fa-offcanvas-text">Inicio</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-inline-block offcanvas-nav-link" href="#">
+                                <i class="fa-solid fa-user-graduate fa-offcanvas-logos fa-fw"></i><span
+                                    class="d-inline-block fa-offcanvas-text">Alumnos</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-inline-block offcanvas-nav-link" href="#"><i
+                                    class="fa-solid fa-person-chalkboard fa-offcanvas-logos fa-fw"></i><span
+                                    class="d-inline-block fa-offcanvas-text">Profesores</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-inline-block offcanvas-nav-link" href="#"><i
+                                    class="fa-solid fa-book-open fa-offcanvas-logos fa-fw"></i><span
+                                    class="d-inline-block fa-offcanvas-text">Cursos</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-inline-block offcanvas-nav-link" href="#"><i
+                                    class="fa-solid fa-school fa-offcanvas-logos fa-fw"></i><span
+                                    class="d-inline-block fa-offcanvas-text">Grados</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-inline-block offcanvas-nav-link" href="#"><i
+                                    class="fa-solid fa-dollar-sign fa-offcanvas-logos fa-fw"></i><span
+                                    class="d-inline-block fa-offcanvas-text">Finanzas</span></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </nav>
-
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">Column1</div>
-                <div class="col">Column2</div>
-                <div class="col">Column3</div>
+        </div>
+    </nav>
+    <div class="px-5">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-8 mb-3 ">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded h-100">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 mb-3">
+                <div class="cell bg-info bg-opacity-10 border border-info rounded">
+                    <h1>Titulo</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic itaque,
+                        obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur maiores
+                        quos! Ad, itaque cupiditate.</span>
+                </div>
             </div>
         </div>
-        <br />Testing<br />b<br />a<br />a<br />b<br />c<br />a<br />b<br />c
-        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
-        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
-        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
-        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
-        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />c
-        <br />a<br />b<br />c<br />a<br />b<br />c<br />a<br />b<br />a
-        <script src="/styles/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+    </div>
+    <script src="/styles/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
