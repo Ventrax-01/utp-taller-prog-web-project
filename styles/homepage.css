@@ -28,10 +28,26 @@
 .homepage-top{
     display:flex;
     justify-content: space-between;
+    background-color: #f7e8e8;
 }
 
-.homepage-top-img{
+.top-left-text{
+    padding:10%;
+}
+.htt-text1{
+    font-size: 4vw;
+}
+.top-left-text-2{
+    padding-top:10px;
+}
+
+.htt-text2{
+    font-size: 1.5vw;
+}
+.homepage-top-right{
     max-width: 45%;
-    background-color: #fff2f2;
+}
+.homepage-top-img{
+    max-width: 100%;
     float:right;
 }
