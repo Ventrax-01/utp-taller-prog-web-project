@@ -1,125 +1,206 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page</title>
-    <style>
-      body {
-        background-color: #f3f3f3;
-        font-family: "Trebuchet MS", sans-serif;
-      }
+<html lang="en">
 
-      .body-container {
-        margin: 0.5% 12%;
-        background-color: #ffffff;
-        border: 0px solid #ccc;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-      }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <script src="https://kit.fontawesome.com/c4f86b63aa.js" crossorigin="anonymous"></script>
+    <link href="/styles/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link href="/styles/homepage.css" rel="stylesheet" />
+    <link href="/styles/slider.css" rel="stylesheet" />
+</head>
 
-      header {
-        height: 60px;
-        background-color: #ffffff;
-        border-bottom: 3px solid;
-        border-image: linear-gradient(to right, #fc5447, #ffa49b) 30;
-        position: relative;
-      }
-
-      .title-container {
-        max-width: 470px; /* Ancho máximo del contenedor */
-        margin: 0 auto; /* Centrar horizontalmente */
-        text-align: center; /* Alinear texto al centro */
-        padding-bottom: 20px; /* Espacio inferior */
-      }
-    </style>
-    <link rel="stylesheet" type="text/css" href="../../styles/landing.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-
-  <body>
-    <div class="body-container">
-      <header>
-        <div
-          class="header-logo-top"
-          style="
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-          "
-        >
-          <img
-            src="assets/images/school-logo-colored.png"
-            style="width: 40px; height: 50px"
-          />
-          <p style="padding-left: 10px; color: #fc5447; font-size: 120%">
-            <b>Colegio XYZ </b>
-          </p>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Colegio XYZ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">¿Quienes somos?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Admision</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Vida escolar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contactenos</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div
-          class="header-right"
-          style="
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-          "
-        >
-          <a href="modules/auth/login.html"
-            ><button
-              class="header-button"
-              style="
-                background: linear-gradient(to bottom right, #fc5447, #ffa49b);
-                color: #ffffff;
-                border: none;
-                border-radius: 15px;
-                padding: 10px 20px;
-                cursor: pointer;
-                font-size: 16px;
-              "
-            >
-              Inicio
-            </button></a
-          >
+    </nav>
+    <!-- <section>
+        <div class="homepage-top">
+            <div class="homepage-top-text-container">
+                <span>Lorem ipsum dolor sit amet.</span>
+                <span class="htt-text1"><b>Revolucionamos la educación en el país</b></span>
+                <span class="test">Lorem ipsum dolor sit amet consectetur adipisicing. Lorem, ipsum dolor sit amet
+                    consectetur adipisicing elit. Accusamus architecto laudantium, provident eveniet repellat dolorem
+                    repellendus dicta nesciunt porro.</span>
+            </div>
+            <img src="assets/images/image-homepage2.png" class="homepage-top-img" />
         </div>
-      </header>
-      <section>
-        <div
-          class="landing-portada-container"
-          style="clip-path: polygon(100% 0, 100% 85%, 50% 95%, 0 85%, 0 0)"
-        >
-          <img
-            src="assets/images/landing-portada.jpg"
-            style="max-width: 100%"
-          />
         </div>
-      </section>
-      <hr class="linea-horizontal" />
-      <div class="title-container">
-        <p
-          style="
-            font-family: 'Inter', sans-serif;
-            font-size: 40px;
-            color: #333;
-            line-height: 1.5;
-            font-weight: bold;
-          "
-        >
-          Forjamos el futuro a través de la educación
-        </p>
-      </div>
+    </section> -->
+    <section>
+        <div class="homepage-top">
+            <div class="homepage-top-left">
+                <div class="top-left-text">
+                    <div class="top-left-text-header">
+                        <span class="htt-text1"><b>Revolucionamos la educación en el país</b></span>
+                    </div>
+                    <div class="top-left-text-2">
+                        <span class="htt-text2">Descubre un mundo de oportunidades con nuestros programas educativos
+                            diseñados para todos los
+                            niveles.
+                            Empieza tu viaje de aprendizaje hoy mismo.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="homepage-top-right">
+                <img src="assets/images/image-homepage2.png" class="homepage-top-img" />
+            </div>
+        </div>
+    </section>
+    <section class="px-2">
+        <div class="px-2 px-sm-5 px-lg-5">
+            <h3 class="py-4"><b>Sobre nosotros</b></h3>
+            <div class="row g-2 g-sm-4 g-lg-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="cell bg-danger bg-opacity-10 border rounded h-100">
+                        <div class="m-3">
+                            <h3 class="module-tag-header">Lorem ipsum</h3>
+                            <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum hic
+                                itaque,
+                                obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum pariatur
+                                maiores
+                                quos! Ad, itaque cupiditate.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="cell bg-danger bg-opacity-10 border rounded">
+                        <div class="m-3">
+                            <h3 class="module-tag-header">Lorem ipsum</h3>
+                            <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum
+                                hic
+                                itaque,
+                                obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum
+                                pariatur
+                                maiores
+                                quos! Ad, itaque cupiditate.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="cell bg-danger bg-opacity-10 border rounded">
+                        <div class="m-3">
+                            <h3 class="module-tag-header">Lorem ipsum</h3>
+                            <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum
+                                hic
+                                itaque,
+                                obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum
+                                pariatur
+                                maiores
+                                quos! Ad, itaque cupiditate.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="cell bg-danger bg-opacity-10 border rounded">
+                        <div class="m-3">
+                            <h3 class="module-tag-header">Lorem ipsum</h3>
+                            <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente laborum ipsum
+                                hic
+                                itaque,
+                                obcaecati aliquid nam optio, eum consequatur nostrum atque, autem alias harum
+                                pariatur
+                                maiores
+                                quos! Ad, itaque cupiditate.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="px-2 px-sm-5 px-lg-5">
+            <h3 class="py-4"><b>Testimonios</b></h3>
+            <div class="slideshow-container border border-danger rounded">
+                <div class="mySlides fade">
+                    <div class="container testimonial-container">
+                        <div class="row">
+                            <div class="col-12 col-sm-4 col-lg-4 px-5 pt-5">
+                                <img src="/assets/images/testimony1.jpg" class="testimonial-image">
+                            </div>
+                            <div class="col-12 col-sm-8 col-lg-8 px-5 pt-5">
+                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+                                    ipsum, illo a iure eligendi quia ducimus voluptatem optio eum esse ab possimus culpa
+                                    facilis deserunt quod molestias iste vitae dolorem omnis ad repellat explicabo
+                                    dolores suscipit? Accusamus optio laborum commodi!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="container testimonial-container">
+                        <div class="row">
+                            <div class="col-12 col-sm-4 col-lg-4 px-5 pt-5">
+                                <img src="/assets/images/testimony2.jpg" class="testimonial-image">
+                            </div>
+                            <div class="col-12 col-sm-8 col-lg-8 px-5 pt-5">
+                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+                                    ipsum, illo a iure eligendi quia ducimus voluptatem optio eum esse ab possimus culpa
+                                    facilis deserunt quod molestias iste vitae dolorem omnis ad repellat explicabo
+                                    dolores suscipit? Accusamus optio laborum commodi!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mySlides fade">
+                    <div class="container testimonial-container">
+                        <div class="row">
+                            <div class="col-12 col-sm-4 col-lg-4 px-5 pt-5">
+                                <img src="/assets/images/testimony3.jpg" class="testimonial-image">
+                            </div>
+                            <div class="col-12 col-sm-8 col-lg-8 px-5 pt-5">
+                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+                                    ipsum, illo a iure eligendi quia ducimus voluptatem optio eum esse ab possimus culpa
+                                    facilis deserunt quod molestias iste vitae dolorem omnis ad repellat explicabo
+                                    dolores suscipit? Accusamus optio laborum commodi!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <br>
 
-      <h1>Bienvenido a nuestra Landing Page</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec
-        odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla
-        quis sem at nibh elementum imperdiet.
-      </p>
-    </div>
-  </body>
+                <!-- The dots/circles -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+    </section>
+    <br>
+    b<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>
+
+    <script src="/scripts/slider.js"></script>
+    <script src="/styles/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>
