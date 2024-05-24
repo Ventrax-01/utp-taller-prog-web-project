@@ -28,7 +28,7 @@
 .homepage-top{
     display:flex;
     justify-content: space-between;
-    background-color: #f7e8e8;
+    background-color: #ffeceb;
 }
 
 .top-left-text{
@@ -42,7 +42,7 @@
 }
 
 .htt-text2{
-    font-size: 1.5vw;
+    font-size: 1.3vw;
 }
 .homepage-top-right{
     max-width: 45%;
