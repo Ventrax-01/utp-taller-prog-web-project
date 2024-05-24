@@ -1,4 +1,4 @@
-.homepage-top {
+/* .homepage-top {
     display: flex;
     justify-content: space-between;
 }
@@ -23,4 +23,15 @@
 .homepage-top-img{
     max-width: 45%;
     background-color: #fff2f2;
+} */
+
+.homepage-top{
+    display:flex;
+    justify-content: space-between;
+}
+
+.homepage-top-img{
+    max-width: 45%;
+    background-color: #fff2f2;
+    float:right;
 }
