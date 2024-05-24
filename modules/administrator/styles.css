@@ -1,3 +1,18 @@
 body {
     font-family: 'Open Sans', 'sans-serif';
 }
+
+tr {
+    line-height: 10px;
+    min-height: 5px;
+ }
+
+@media (max-width: 540px) {
+    td { font-size: 10px; }
+
+}
+
+@media (min-width: 768px) {
+    td { font-size: 13px; }
+
+}
