@@ -7,6 +7,23 @@ tr {
     min-height: 5px;
  }
 
+ .module-tag-header {
+    font-weight: bold;
+ }
+
+ thead {
+    font-weight: bold;
+ }
+
+ .border-danger{
+    border-color: #ff8b83 !important;
+    border-width: 2px !important;
+ }
+
+ .bg-danger{
+    background-color: #fff2f2 !important;
+ }
+
 @media (max-width: 540px) {
     td { font-size: 10px; }
 
