@@ -1,0 +1,4 @@
+.form-control.add{
+    flex-grow: 0;
+    flex-basis: 50px;
+}
