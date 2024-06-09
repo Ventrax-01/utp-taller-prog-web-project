@@ -69,20 +69,6 @@
             text-align: center;
             position: relative;
         }
-        section img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 1s;
-        }
-        section img:first-child {
-            opacity: 1;
-        }
         .bajo {
             background-color: #fe9187;
             color: black;
@@ -121,6 +107,24 @@
             color: white;
             text-decoration: none;
         }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .course {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .course h3 {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body>
@@ -135,7 +139,7 @@
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">MENU</div>
     <ul>
-        <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="Cursos.html"><i class="fas fa-book"></i> Cursos</a></li>
         <li><a href="calificaiones.html"><i class="fas fa-clipboard-check"></i> Calificaciones</a></li>
         <li><a href="#"><i class="fas fa-user-check"></i> Asistencia</a></li>
@@ -146,20 +150,84 @@
 </div>
 
 <section>
-    <img src="imagen1.jpg" alt="Imagen de bienvenida" width="650px">
-    <img src="imagen3.jpg" alt="Imagen de bienvenida" width="650px">
-    <img src="imagen4.jpg" alt="Imagen de bienvenida" width="650px">
-    <img src="imagen6.jpg" alt="Imagen de bienvenida" width="650px">
-
-    <h2>Bienvenido, Profesor</h2>
-    <p>¡Aquí puedes gestionar tus clases y mantener el contacto con tus alumnos!</p>
-    
-    <h3>Últimas Noticias</h3>
-    <ul>
-        <li>Reunión de padres y maestros el próximo viernes a las 3pm.</li>
-        <li>Se recuerda a los alumnos entregar los trabajos pendientes antes del viernes.</li>
-    </ul>
+    <div class="container">
+        <h2>Calificaciones</h2>
+        <table class="table table-bordered" style="border-color: black;">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Matemáticas</th>
+                    <th>Ciencias</th>
+                    <th>Historia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Sofía Martínez</th>
+                    <td>18</td>
+                    <td>20</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <th>Juan Rodríguez</th>
+                    <td>15</td>
+                    <td>17</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <th>Ana Pérez</th>
+                    <td>16</td>
+                    <td>19</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <th>Carlos López</th>
+                    <td>19</td>
+                    <td>18</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <th>Marta García</th>
+                    <td>17</td>
+                    <td>16</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <th>Pablo Fernández</th>
+                    <td>20</td>
+                    <td>19</td>
+                    <td>17</td>
+                </tr>
+                <tr>
+                    <th>Laura González</th>
+                    <td>16</td>
+                    <td>15</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <th>David Sánchez</th>
+                    <td>18</td>
+                    <td>17</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <th>María López</th>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <th>Lucía Martínez</th>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>18</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </section>
+
+
 
 <div class="bajo">
     <h3>Todos los derechos reservados</h3>
@@ -181,18 +249,9 @@
             menuToggle.classList.remove('active');
         }
     });
-
-    document.addEventListener("DOMContentLoaded", function(event) { 
-        var images = document.querySelectorAll('section img');
-        var currentImageIndex = 0;
-
-        setInterval(function() {
-            images[currentImageIndex].style.opacity = '0';
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            images[currentImageIndex].style.opacity = '1';
-        }, 5000);
-    });
 </script>
 
 </body>
 </html>
+
+
