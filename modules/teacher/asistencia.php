@@ -1,3 +1,34 @@
+<?php
+session_start();
+
+
+if (!isset($_SESSION['students'])) {
+    $_SESSION['students'] = [
+        ["Sofía Martínez", "Presente", "Ausente", "Presente"],
+        ["Juan Rodríguez", "Presente", "Presente", "Ausente"],
+        ["Ana Pérez", "Ausente", "Presente", "Presente"],
+        ["Carlos López", "Presente", "Presente", "Presente"],
+        ["Marta García", "Presente", "Presente", "Presente"],
+        ["Pablo Fernández", "Ausente", "Ausente", "Ausente"],
+        ["Laura González", "Presente", "Ausente", "Presente"],
+        ["David Sánchez", "Ausente", "Presente", "Presente"],
+        ["María López", "Presente", "Ausente", "Presente"],
+        ["Lucía Martínez", "Presente", "Presente", "Presente"],
+    ];
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $new_student = [
+        $_POST['student_name'],
+        $_POST['math_status'],
+        $_POST['science_status'],
+        $_POST['history_status']
+    ];
+    $_SESSION['students'][] = $new_student;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -161,7 +192,7 @@
     <ul>
         <li><a href="index.php"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="Cursos.php"><i class="fas fa-book"></i> Cursos</a></li>
-        <li><a href="calificaiones.php"><i class="fas fa-clipboard-check"></i> Calificaciones</a></li>
+        <li><a href="calificaciones.php"><i class="fas fa-clipboard-check"></i> Calificaciones</a></li>
         <li><a href="asistencia.php"><i class="fas fa-user-check"></i> Asistencia</a></li>
         <li><a href="#"><i class="fas fa-tasks"></i> Tareas</a></li>
         <li><a href="#"><i class="fas fa-chalkboard"></i> Aulas</a></li>
@@ -185,21 +216,8 @@
                 </thead>
                 <tbody>
                     <?php
-                    $students = [
-                        ["Sofía Martínez", "Presente", "Ausente", "Presente"],
-                        ["Juan Rodríguez", "Presente", "Presente", "Ausente"],
-                        ["Ana Pérez", "Ausente", "Presente", "Presente"],
-                        ["Carlos López", "Presente", "Presente", "Presente"],
-                        ["Marta García", "Presente", "Presente", "Presente"],
-                        ["Pablo Fernández", "Ausente", "Ausente", "Ausente"],
-                        ["Laura González", "Presente", "Ausente", "Presente"],
-                        ["David Sánchez", "Ausente", "Presente", "Presente"],
-                        ["María López", "Presente", "Ausente", "Presente"],
-                        ["Lucía Martínez", "Presente", "Presente", "Presente"],
-                    ];
-
                     // Mostrar la lista de estudiantes
-                    foreach ($students as $student) {
+                    foreach ($_SESSION['students'] as $student) {
                         echo "<tr>";
                         echo "<td>" . $student[0] . "</td>";
                         for ($i = 1; $i < count($student); $i++) {
@@ -220,21 +238,21 @@
                     <input type="text" class="form-control" id="student_name" name="student_name" required>
                 </div>
                 <div class="form-group">
-                    <label for="math_status">Estado de Matemáticas</label>
+                    <label for="math_status">Puntualidad de Matemáticas</label>
                     <select class="form-control" id="math_status" name="math_status" required>
                         <option value="Presente">Presente</option>
                         <option value="Ausente">Ausente</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="science_status">Estado de Ciencias</label>
+                    <label for="science_status">Puntualidad de Ciencias</label>
                     <select class="form-control" id="science_status" name="science_status" required>
                         <option value="Presente">Presente</option>
                         <option value="Ausente">Ausente</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="history_status">Estado de Historia</label>
+                    <label for="history_status">Puntualidad de Historia</label>
                     <select class="form-control" id="history_status" name="history_status" required>
                         <option value="Presente">Presente</option>
                         <option value="Ausente">Ausente</option>
@@ -271,3 +289,4 @@
 
 </body>
 </html>
+

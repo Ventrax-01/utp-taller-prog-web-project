@@ -199,6 +199,8 @@
                     ["David Sánchez", 18, 17, 19],
                     ["María López", 17, 18, 16],
                     ["Lucía Martínez", 19, 20, 18],
+                    ["Maykol", 19, 20, 18]
+                    ,
                 ];
                 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
