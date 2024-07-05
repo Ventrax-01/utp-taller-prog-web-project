@@ -2,7 +2,7 @@
 $host = '127.0.0.1';
 $db = 'colegio_xyz';
 $user = 'root';
-$pass = 'admin';
+$pass = 'ragmalgmbfgm01';
 
 $conn = new mysqli($host, $user, $pass, $db);
 

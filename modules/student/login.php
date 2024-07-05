@@ -2,9 +2,7 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo "<script> location.href='index.php'; </script>";
-    exit();
-    /* require_once 'db.php';
+    require_once 'db.php';
 
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
@@ -27,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "Contraseña incorrecta.";
         }
     } else {
-        $error = "Usuario no encontrado."; 
-    }*/
+        $error = "Usuario no encontrado.";
+    }
 }
 ?>
 <!DOCTYPE html>
