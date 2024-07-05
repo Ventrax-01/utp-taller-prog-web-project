@@ -7,6 +7,7 @@ $pass = 'colegio_xyz';
 $conn = new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {
+    echo "ERROR";
     die("Connection failed: " . $conn->connect_error);
 }
 ?>
