@@ -1,11 +1,9 @@
 <?php
 session_start();
-echo "TEST";
 if (!isset($_SESSION['alumno_id'])) {
     echo "<script> location.href='login.php'; </script>";
     exit();
 }
-echo "TEST2";
 
 require_once 'controllerAlumno.php';
 $controller = new ControllerAlumno();
