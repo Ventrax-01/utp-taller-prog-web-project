@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$db = 'estudiante_db';
+$host = '127.0.0.1';
+$db = 'colegio_xyz';
 $user = 'root';
-$pass = '';
+$pass = 'admin';
 
 $conn = new mysqli($host, $user, $pass, $db);
 
