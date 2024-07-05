@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['alumno_id'])) {
-    header('Location: login.php');
+    echo "<script> location.href='login.php'; </script>";
     exit();
 }
 
