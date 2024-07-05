@@ -7,8 +7,84 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        /* Estilos CSS */
-        /* ... (los estilos permanecen sin cambios) ... */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .header-container {
+            background-color: #343a40;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .menu-toggle-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .menu-toggle {
+            background-color: #343a40;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #343a40;
+            color: #fff;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .sidebar-header {
+            padding: 10px;
+            text-align: center;
+            background-color: #495057;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            margin-left: 260px;
+            padding: 20px;
+        }
+        .resumen-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .dashboard-item {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        .curso-item {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -35,7 +111,17 @@
             <h2>Resumen General</h2>
             <div class="resumen-dashboard">
                 <?php
-                require_once 'controller.php';
+                session_start();
+                if (!isset($_SESSION['usuario'])) {
+                    header("Location: login.php");
+                    exit();
+                }
+
+                require_once 'controlleralumno.php';
+
+                $controlador = new Controlador();
+                $tipoUsuario = $_SESSION['usuario']; // Este valor debería venir de la sesión
+                $datos = $controlador->obtenerDatosDashboard($tipoUsuario);
 
                 // Mostrar próximas clases
                 echo "<div class='dashboard-item' style='background-color: #FFDC00;'>"; // Amarillo
@@ -116,33 +202,28 @@
         </section>
         <section id="cursos" class="hidden">
             <h2>Cursos</h2>
-            <p>Bienvenido a la sección de cursos.</p>
-            <table>
-                <tr>
-                    <th>Materia</th>
-                    <th>Docente</th>
-                </tr>
-                <tr>
-                    <td>Matemáticas</td>
-                    <td>Profesor García</td>
-                </tr>
-                <tr>
-                    <td>Lengua</td>
-                    <td>Profesor López</td>
-                </tr>
-                <tr>
-                    <td>Ciencias Sociales</td>
-                    <td>Profesor Martínez</td>
-                </tr>
-                <tr>
-                    <td>Ciencias Naturales</td>
-                    <td>Profesor Rodríguez</td>
-                </tr>
-                <tr>
-                    <td>Historia</td>
-                    <td>Profesor Pérez</td>
-                </tr>
-            </table>
+            <div class="resumen-dashboard">
+                <div class="curso-item">
+                    <h3>Matemáticas</h3>
+                    <p>Profesor: García</p>
+                </div>
+                <div class="curso-item">
+                    <h3>Lengua</h3>
+                    <p>Profesor: López</p>
+                </div>
+                <div class="curso-item">
+                    <h3>Ciencias Sociales</h3>
+                    <p>Profesor: Martínez</p>
+                </div>
+                <div class="curso-item">
+                    <h3>Ciencias Naturales</h3>
+                    <p>Profesor: Rodríguez</p>
+                </div>
+                <div class="curso-item">
+                    <h3>Historia</h3>
+                    <p>Profesor: Pérez</p>
+                </div>
+            </div>
         </section>
         <section id="notas" class="hidden">
             <h2>Notas</h2>
@@ -158,8 +239,25 @@
         </section>
     </main>
     <script>
-        // Script JavaScript para la funcionalidad del menú
-        // ... (El script JavaScript permanece sin cambios) ...
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.style.transform = sidebar.style.transform === 'translateX(0)' ? 'translateX(-100%)' : 'translateX(0)';
+        });
+
+        document.querySelectorAll('.sidebar ul li a').forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelectorAll('main section').forEach(function(section) {
+                    section.classList.add('hidden');
+                });
+                var target = document.querySelector(this.getAttribute('href'));
+                target.classList.remove('hidden');
+
+                // Ocultar la barra lateral
+                var sidebar = document.getElementById('sidebar');
+                sidebar.style.transform = 'translateX(-100%)';
+            });
+        });
     </script>
 </body>
 </html>

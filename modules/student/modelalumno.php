@@ -1,90 +1,60 @@
 <?php
-class Modelo {
-    private $proximas_clases = [
-        ['Matemáticas', 'Lunes, 8:00 AM'],
-        ['Lengua', 'Lunes, 9:00 AM'],
-        ['Inglés', 'Martes, 9:00 AM'],
-        ['Ciencias Sociales', 'Miércoles, 10:00 AM'],
-        ['Ciencias Naturales', 'Jueves, 9:00 AM'],
-        ['Arte', 'Viernes, 11:00 AM']
-    ];
+class ModelAlumno {
+    private $db;
 
-    private $notas_recientes = [
-        ['Matemáticas', '18/20'],
-        ['Lengua', '15/20'],
-        ['Historia', '17/20'],
-        ['Ciencias Sociales', '16/20'],
-        ['Ciencias Naturales', '19/20'],
-        ['Arte', '14/20']
-    ];
-
-    private $tareas_pendientes = [
-        ['Matemáticas', 'Resolver ejercicios página 45'],
-        ['Lengua', 'Leer capítulo 4 del libro'],
-        ['Ciencias Sociales', 'Hacer resumen del tema 2'],
-        ['Ciencias Naturales', 'Investigar sobre ecosistemas'],
-        ['Inglés', 'Preparar presentación oral'],
-        ['Arte', 'Crear una composición artística']
-    ];
-
-    public function obtenerProximasClases() {
-        return $this->proximas_clases;
+    public function __construct() {
+        $this->db = new PDO('mysql:host=localhost;dbname=estudiante_db', 'root', '');
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function obtenerNotasRecientes() {
-        return $this->notas_recientes;
+    public function getCursos($alumno_id) {
+        $stmt = $this->db->prepare("
+            SELECT cursos.id, cursos.nombre, profesores.nombre as profesor 
+            FROM asignaciones_cursos 
+            JOIN cursos ON asignaciones_cursos.curso_id = cursos.id 
+            JOIN profesores ON cursos.profesor_id = profesores.id 
+            WHERE asignaciones_cursos.alumno_id = :alumno_id
+        ");
+        $stmt->bindParam(':alumno_id', $alumno_id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function obtenerTareasPendientes() {
-        return $this->tareas_pendientes;
+    public function getNotas($alumno_id) {
+        $stmt = $this->db->prepare("
+            SELECT cursos.nombre as curso, notas.pc1, notas.pc2, notas.ef 
+            FROM notas 
+            JOIN cursos ON notas.curso_id = cursos.id 
+            WHERE notas.alumno_id = :alumno_id
+        ");
+        $stmt->bindParam(':alumno_id', $alumno_id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function calcularPromedioNotas($notas) {
-        $total_notas = count($notas);
-        if ($total_notas === 0) {
-            return 0;
-        }
-
-        $suma_notas = 0;
-        foreach ($notas as $nota) {
-            $suma_notas += (int) explode('/', $nota[1])[0];
-        }
-
-        return $suma_notas / $total_notas;
+    public function getTareas($alumno_id) {
+        $stmt = $this->db->prepare("
+            SELECT cursos.nombre as curso, tareas.descripcion, tareas.fecha_entrega 
+            FROM tareas 
+            JOIN cursos ON tareas.curso_id = cursos.id 
+            WHERE tareas.alumno_id = :alumno_id
+        ");
+        $stmt->bindParam(':alumno_id', $alumno_id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function buscarClasePorDia($dia) {
-        $clases_en_dia = [];
-        foreach ($this->proximas_clases as $clase) {
-            if (strpos(strtolower($clase[1]), strtolower($dia)) !== false) {
-                $clases_en_dia[] = $clase;
-            }
-        }
-        return $clases_en_dia;
-    }
-
-    public function obtenerPromediosPorMateria() {
-        $promedios = [];
-        foreach ($this->notas_recientes as $nota) {
-            $materia = $nota[0];
-            $calificacion = (int) explode('/', $nota[1])[0];
-
-            if (isset($promedios[$materia])) {
-                $promedios[$materia]['total_notas']++;
-                $promedios[$materia]['suma_notas'] += $calificacion;
-            } else {
-                $promedios[$materia] = [
-                    'total_notas' => 1,
-                    'suma_notas' => $calificacion
-                ];
-            }
-        }
-
-        foreach ($promedios as $materia => &$datos) {
-            $datos['promedio'] = $datos['suma_notas'] / $datos['total_notas'];
-        }
-
-        return $promedios;
+    public function getHorario($alumno_id) {
+        $stmt = $this->db->prepare("
+            SELECT cursos.nombre as curso, horarios.dia_semana, horarios.hora_inicio, horarios.hora_fin 
+            FROM asignaciones_cursos 
+            JOIN horarios ON asignaciones_cursos.curso_id = horarios.curso_id 
+            JOIN cursos ON horarios.curso_id = cursos.id 
+            WHERE asignaciones_cursos.alumno_id = :alumno_id
+        ");
+        $stmt->bindParam(':alumno_id', $alumno_id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>
