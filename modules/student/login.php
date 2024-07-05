@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($contrasena == $row['contrasena']) {  // Comparar directamente en texto plano
             $_SESSION['alumno_id'] = $row['id'];
             $_SESSION['nombre_alumno'] = $row['nombre'];
-            header('Location: index.php');
+            echo "<script> location.href='index.php'; </script>";
             exit();
         } else {
             $error = "Contraseña incorrecta.";
