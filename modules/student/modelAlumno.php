@@ -3,7 +3,7 @@ class ModelAlumno {
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=estudiante_db', 'root', '');
+        $this->db = new PDO('mysql:host=18.217.140.227;dbname=colegio_xyz', 'admin_xyz', 'colegio_xyz');
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
