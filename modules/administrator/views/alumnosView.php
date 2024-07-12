@@ -2,7 +2,7 @@
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
 $administratorControler = new AdministratorController();
-$alumnos = $administratorControler->getAlumnosList();
+$alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'],$_SESSION['seccionSeleccionada']);
 
 ?>
 
@@ -505,6 +505,9 @@ $alumnos = $administratorControler->getAlumnosList();
             // Obtener los valores seleccionados
             var gradoSeleccionado = $('#selectGrado').val();
             var seccionSeleccionada = $('#selectSeccion').val();
+
+            $_SESSION['gradoSeleccionado'] = $gradoSeleccionado;
+            $_SESSION['seccionSeleccionada'] = $seccionSeleccionada;
 
             // Mostrar los valores seleccionados en consola (opcional)
             console.log('Grado seleccionado:', gradoSeleccionado);
