@@ -38,7 +38,7 @@ class AdministratorModel {
         }
 
         if ($filtro2 !== null) {
-            $sql .= " AND a.seccion = ':filtro2'";
+            $sql .= " AND a.seccion = :filtro2";
         }
 
         // Agrupar después de las condiciones WHERE
