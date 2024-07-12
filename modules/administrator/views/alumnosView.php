@@ -5,16 +5,7 @@ require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorContro
 echo "2";
 $administratorControler = new AdministratorController();
 echo "3";
-$alumnosList = $administratorControler->getAlumnosList($_SESSION['user_id']);
-#echo $alumnosList;
-echo "  ";
-
-foreach ($notas as $nota): 
-    echo $nota;
-endforeach; 
-
-?>
-
+$alumnos = $administratorControler->getAlumnosList($_SESSION['user_id']);
 
 <div class="px-2 px-sm-5 px-lg-5">
     <div class="row g-2 g-sm-4 g-lg-4">
@@ -114,6 +105,17 @@ endforeach;
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($alumnos as $alumno): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($alumno['id']); ?></td>
+                                <td><?php echo htmlspecialchars($alumno['nombre']); ?></td>
+                                <td><?php echo htmlspecialchars($alumno['grado']); ?></td>
+                                <td><?php echo htmlspecialchars($alumno['seccion']); ?></td>
+                                <td><?php echo htmlspecialchars($alumno['promedio']); ?></td>
+                                <td><?php echo htmlspecialchars($alumno['correo']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    
                         <tr>
                             <th scope="row">1</th>
                             <td>Lorem ipsum dolor sit</td>
