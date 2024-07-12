@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <?php endif; ?>
                     <div class="mb-3">
                         <label for="correo" class="form-label">Correo:</label>
-                        <input type="email" id="correo" name="correo" class="form-control" required>
+                        <input type="text" id="correo" name="correo" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label for="contrasena" class="form-label">Contraseña:</label>
