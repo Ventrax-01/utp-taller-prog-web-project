@@ -1,4 +1,5 @@
 <?php
+session_start();
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
 $administratorControler = new AdministratorController();
