@@ -101,33 +101,14 @@
                         </li>
                     </ul>
                 </div>
-                <div class="dropdown py-1">
+                <div class="py-1">
                     <span>Seleccione la sección: </span>
-                    <a
-                        class="btn btn-secondary dropdown-toggle"
-                        href="#"
-                        role="button"
-                        id="dropdownMenuLink"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        Todos.
-                    </a>
-
-                    <ul
-                        class="dropdown-menu"
-                        aria-labelledby="dropdownMenuLink"
-                    >
-                        <li>
-                            <a class="dropdown-item" href="#">A</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">B</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">C</a>
-                        </li>
-                    </ul>
+                    <select class="form-select btn-secondary" aria-label="Default select example">
+                    <option selected>Todos</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-primary mb-2">
