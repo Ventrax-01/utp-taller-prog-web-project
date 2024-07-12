@@ -12,20 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($formType == 'cargarAlumnos') {
             $_SESSION['gradoSeleccionado'] = isset($_POST['selectGrado']) ? $_POST['selectGrado'] : null;
             $_SESSION['seccionSeleccionada'] = isset($_POST['selectSeccion']) ? $_POST['selectSeccion'] : null;
-            echo "cargarAlumnos";
         }
         if ($formType == 'crearAlumno') {
-            echo "crearAlumnos";
             $correo = $_POST['correo'];
             $contrasena = $_POST['contrasena'];
             $recontrasena = $_POST['recontrasena'];
             $nombre = $_POST['nombre'];
             $grado = $_POST['grado'];
             $seccion = $_POST['seccion'];
-            echo "test";
             try {
-                echo " ing ";
-                echo $correo, $contrasena, $recontrasena, $nombre, $grado, $seccion;
                 $administratorController->createNewAlumno($correo, $contrasena, $recontrasena, $nombre, $grado, $seccion);
                 $message = '<div class="alert alert-success" role="alert">Alumno creado exitosamente!</div>';
             } catch (Exception $e) {
