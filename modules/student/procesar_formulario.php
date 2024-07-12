@@ -1,5 +1,8 @@
 <?php
-require_once 'db.php';
+
+define('MAIN_PATH', dirname(__DIR__));
+require_once MAIN_PATH . '/db.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $alumno_id = $_POST['alumno_id'];
