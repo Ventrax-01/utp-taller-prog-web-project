@@ -1,3 +1,5 @@
+<?php include 'middleware.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,11 +44,7 @@
                 
             </div>
         </nav>
-        <div class="px-2 px-sm-5 px-lg-5">
-            <div class="row g-2 g-sm-4 g-lg-4">
-                <?php include 'views/inicioView.php'; ?>
-            </div>
-        </div>
+            <?php include 'views/inicioView.php'; ?>
         <script src="/styles/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
