@@ -78,5 +78,13 @@ class AdministratorModel {
             throw $e;
         }
     }
+
+    public function getCursos() {
+        $stmt = $this->db->prepare("
+        SELECT c.id, c.nombre as nombre_curso, p.nombre as nombre_profesor FROM cursos c left join profesores p on p.id  = c.profesor_id 
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

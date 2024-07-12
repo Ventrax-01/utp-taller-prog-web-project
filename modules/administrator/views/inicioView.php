@@ -1,3 +1,13 @@
+<?php
+session_start();
+define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
+
+require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
+$administratorController = new AdministratorController();
+$cursos = $administratorController->getCursos();
+
+?>
+
 <div class="px-2 px-sm-5 px-lg-5">
     <div class="row g-2 g-sm-4 g-lg-4">
         <div class="col-12 col-lg-4">
@@ -79,14 +89,26 @@
             >
                 <div class="m-3">
                     <h3 class="module-tag-header">Cursos</h3>
-                    <span
-                        >Lorem ipsum dolor sit, amet consectetur
-                        adipisicing elit. Sapiente laborum ipsum hic
-                        itaque, obcaecati aliquid nam optio, eum
-                        consequatur nostrum atque, autem alias harum
-                        pariatur maiores quos! Ad, itaque
-                        cupiditate.</span
+                    <<table
+                        class="table table-striped table-bordered border-danger small"
                     >
+                        <thead>
+                            <tr>
+                                <th scope="col">#ID</th>
+                                <th scope="col">Curso</th>
+                                <th scope="col">Profesor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($cursos as $curso): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($curso['id']); ?></td>
+                                    <td><?php echo htmlspecialchars($curso['nombre_curso']); ?></td>
+                                    <td><?php echo htmlspecialchars($curso['nombre_profesor']); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
