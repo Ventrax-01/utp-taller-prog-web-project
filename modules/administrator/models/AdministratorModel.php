@@ -37,7 +37,7 @@ class AdministratorModel {
             LEFT JOIN notas n ON n.alumno_id = a.id 
             WHERE a.id = :alumno_id
         ";
-
+        echo " query ";
         // Añadir condiciones para filtros
         if ($filtro1 !== null) {
             $sql .= " AND a.grado = :filtro1";
@@ -60,8 +60,9 @@ class AdministratorModel {
         if ($filtro2 !== null) {
             $stmt->bindParam(':filtro2', $filtro2);
         }
-
+        echo "pre execute";
         $stmt->execute();
+        echo "executed" ;
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
