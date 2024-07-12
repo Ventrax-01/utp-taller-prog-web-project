@@ -12,15 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("s", $correo);
     $stmt->execute();
     $result = $stmt->get_result();
-
+    echo "Funciona DB"
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
-
+        echo "Funciona FETCH"
         if ($contrasena == $row['contrasena']) {  // Comparar directamente en texto plano
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['nombre_usuario'] = $row['nombre'];
             $_SESSION['user_type'] = $row['user_type'];
-
+            echo "Funciona SESSION"
             switch ($row['user_type']) {
                 case 'alumno':
                     echo "<script> location.href='/modules/student/index.php'; </script>";
