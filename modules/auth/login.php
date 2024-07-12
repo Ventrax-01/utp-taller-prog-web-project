@@ -23,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             switch ($row['user_type']) {
                 case 'alumno':
-                    echo "<script> location.href='ruta_alumno.php'; </script>";
+                    echo "<script> location.href='/modules/student/index.php'; </script>";
                     break;
                 case 'profesor':
-                    echo "<script> location.href='ruta_profesor.php'; </script>";
+                    echo "<script> location.href='/modules/teacher/index.php'; </script>";
                     break;
                 case 'admin':
-                    echo "<script> location.href='ruta_admin.php'; </script>";
+                    echo "<script> location.href='/modules/administrator/index.html'; </script>";
                     break;
                 default:
                     $error = "Tipo de usuario no válido.";
