@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     echo "<script> location.href='/modules/teacher/index.php'; </script>";
                     break;
                 case 'admin':
-                    echo "<script> location.href='/modules/administrator/index.html'; </script>";
+                    echo "<script> location.href='/modules/administrator/index.php'; </script>";
                     break;
                 default:
                     $error = "Tipo de usuario no válido.";
