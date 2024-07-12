@@ -34,11 +34,11 @@ class AdministratorModel {
         ";
         // Añadir condiciones para filtros
         if ($filtro1 !== null) {
-            $sql .= " AND a.grado = :filtro1";
+            $sql .= " AND a.grado = ':filtro1'";
         }
 
         if ($filtro2 !== null) {
-            $sql .= " AND a.seccion = :filtro2";
+            $sql .= " AND a.seccion = ':filtro2'";
         }
 
         // Agrupar después de las condiciones WHERE
