@@ -60,7 +60,7 @@ class AdministratorModel {
             $sql = "INSERT INTO usuario (correo, contrasena, user_type) VALUES (:correo, :contrasena, 'alumno')";
             $stmt = $this->db->prepare($sql);
             $stmt->bindParam(':correo', $correo);
-            $stmt->bindParam(':contrasena', $hashed_password);
+            $stmt->bindParam(':contrasena', $contrasena);
             $stmt->execute();
             $user_id = $this->db->lastInsertId();
 
