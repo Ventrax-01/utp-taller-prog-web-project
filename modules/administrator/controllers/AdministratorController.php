@@ -9,6 +9,8 @@ class AdministratorController {
     }
 
     public function getAlumnosList($filtro1 = null, $filtro2 = null) {
+        echo $filtro1;
+        echo $filtro2;
         return $this->model->getAlumnosList($filtro1 = null, $filtro2 = null);
     }
 }
