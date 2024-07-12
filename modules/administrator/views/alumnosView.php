@@ -2,6 +2,9 @@
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
 $administratorControler = new AdministratorController();
+echo $_SESSION['gradoSeleccionado'];
+echo " ";
+echo $_SESSION['seccionSeleccionada'];
 $alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'],$_SESSION['seccionSeleccionada']);
 
 ?>
