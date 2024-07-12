@@ -27,13 +27,15 @@
                     </div>
                     <div class="col d-flex align-items-center">
                         <div class="exit-logo-div">
-                            <img
-                                id="exit-logo"
-                                src="../../assets/images/logout_logo.png"
-                                alt="logout"
-                                width="35px"
-                                height="35px"
-                            />
+                            <a href="/modules/auth/logout.php">
+                                <img
+                                    id="exit-logo"
+                                    src="../../assets/images/logout_logo.png"
+                                    alt="logout"
+                                    width="35px"
+                                    height="35px"
+                                />
+                            </a>
                         </div>
                     </div>
                 </div>
