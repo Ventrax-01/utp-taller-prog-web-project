@@ -53,7 +53,7 @@ class AdministratorModel {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function createAlumno($correo, $contrasena, $nombre, $grado, $seccion) {
+    public function createNewAlumno($correo, $contrasena, $nombre, $grado, $seccion) {
         try {
             $this->db->beginTransaction();
 
