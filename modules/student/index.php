@@ -1,4 +1,5 @@
 <?php
+define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 session_start();
 if (!isset($_SESSION['user_id'])) {
     echo "<script> location.href='/modules/auth/login.php'; </script>";
@@ -192,7 +193,7 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
         </div>
         <h1>Mi Página de Estudiante</h1>
         <p>Bienvenido, <?php echo isset($_SESSION['nombre_alumno']) ? htmlspecialchars($_SESSION['nombre_alumno']) : 'Usuario'; ?></p>
-        <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
+        <a href="/modules/auth/logout.php" class="btn btn-danger">Cerrar Sesión</a>
     </div>
 
     <div class="sidebar" id="sidebar">
