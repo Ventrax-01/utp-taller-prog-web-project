@@ -34,12 +34,12 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             background-color: #f8f9fa;
         }
         .header-container {
-            background-color: #FF0000; /* Cambiado a rojo */
+            background-color: #fe9187; /* Cambiado a #fe9187 */
             color: #fff;
             padding: 10px;
             text-align: center;
             position: relative;
-            border-bottom: 3px solid #cc0000; /* Agregar borde al encabezado */
+            border-bottom: 3px solid #e87b6f; /* Agregar borde al encabezado */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para efecto visual */
         }
         .menu-toggle-container {
@@ -48,7 +48,7 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             left: 10px;
         }
         .menu-toggle {
-            background-color: #FF0000; /* Cambiado a rojo */
+            background-color: #fe9187; /* Cambiado a #fe9187 */
             color: #fff;
             border: none;
             padding: 10px;
@@ -56,7 +56,7 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             transition: background-color 0.3s ease;
         }
         .menu-toggle:hover {
-            background-color: #cc0000; /* Efecto hover */
+            background-color: #e87b6f; /* Efecto hover */
         }
         .sidebar {
             position: fixed;
@@ -64,17 +64,17 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             top: 0;
             width: 250px;
             height: 100%;
-            background-color: #FF0000; /* Cambiado a rojo */
+            background-color: #333; /* Cambiado a #333 */
             color: #fff;
             transform: translateX(-100%);
             transition: transform 0.3s ease-in-out;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para efecto visual */
-            border-right: 3px solid #cc0000; /* Agregar borde a la barra deslizante */
+            border-right: 3px solid #444; /* Agregar borde a la barra deslizante */
         }
         .sidebar-header {
             padding: 10px;
             text-align: center;
-            background-color: #FF0000; /* Cambiado a rojo */
+            background-color: #333; /* Cambiado a #333 */
         }
         .sidebar ul {
             list-style-type: none;
@@ -85,11 +85,26 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             transition: background-color 0.3s ease;
         }
         .sidebar ul li:hover {
-            background-color: #cc0000; /* Efecto hover */
+            background-color: #444; /* Efecto hover */
         }
         .sidebar ul li a {
             color: #fff;
             text-decoration: none;
+        }
+        #menu-hide {
+            background-color: #333; /* Cambiado a #333 */
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #menu-hide:hover {
+            background-color: #444; /* Efecto hover */
         }
         main {
             margin-left: 260px;
@@ -104,18 +119,18 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             border-radius: 10px; /* Bordes redondeados */
             overflow: hidden;
             transition: transform 0.3s ease; /* Efecto al pasar el cursor */
-            background-color: #fff; /* Fondo blanco para los cuadros */
+            background-color: #f5f5f5; /* Fondo blanco humo para los cuadros */
             border: 1px solid #ddd; /* Borde alrededor de los cuadros */
         }
         .card:hover {
             transform: scale(1.05); /* Efecto hover */
         }
         .card-header {
-            background-color: #FF0000; /* Cambiado a rojo */
+            background-color: #fe9187; /* Cambiado a #fe9187 */
             color: #fff;
             padding: 10px;
             font-weight: bold;
-            border-bottom: 2px solid #cc0000; /* Agregar borde al encabezado de las tarjetas */
+            border-bottom: 2px solid #e87b6f; /* Agregar borde al encabezado de las tarjetas */
         }
         .card-body {
             padding: 10px;
@@ -130,7 +145,7 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             padding: 8px;
         }
         .table th {
-            background-color: #FF0000; /* Fondo del encabezado de la tabla */
+            background-color: #fe9187; /* Fondo del encabezado de la tabla */
             color: white;
             font-weight: normal; /* Más delgado */
             padding: 4px; /* Ajustar el padding */
@@ -153,7 +168,7 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             width: 100%;
             max-width: 800px; /* Ajustar el ancho máximo para centrar */
             border: 1px solid #ddd; /* Borde alrededor del calendario */
-            background-color: #fff; /* Fondo blanco para el calendario */
+            background-color: #f5f5f5; /* Fondo blanco humo para el calendario */
             box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra para efecto visual */
         }
         .calendar .hour-label {
@@ -184,6 +199,38 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             display: flex;
             flex-direction: column;
         }
+        /* Estilos para el popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: #fe9187; /* Cambiar el fondo del popup */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-radius: 10px;
+            text-align: center;
+            color: #fff; /* Cambiar el color del texto */
+        }
+        .popup.show {
+            display: block;
+        }
+        .popup h2 {
+            margin-top: 0;
+        }
+        .popup .close-btn {
+            background-color: #e87b6f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .popup .close-btn:hover {
+            background-color: #c76b5d;
+        }
     </style>
 </head>
 <body>
@@ -193,7 +240,7 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
         </div>
         <h1>Mi Página de Estudiante</h1>
         <p>Bienvenido, <?php echo isset($_SESSION['nombre_alumno']) ? htmlspecialchars($_SESSION['nombre_alumno']) : 'Usuario'; ?></p>
-        <a href="/modules/auth/logout.php" class="btn btn-danger">Cerrar Sesión</a>
+        <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
     </div>
 
     <div class="sidebar" id="sidebar">
@@ -205,7 +252,7 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
             <li><a href="#tareas"><i class="fas fa-tasks"></i> Tareas</a></li>
             <li><a href="#horario"><i class="fas fa-clock"></i> Horario</a></li>
         </ul>
-        <button id="menu-hide" class="menu-toggle">✖</button> <!-- Botón para ocultar la barra lateral -->
+        <button id="menu-hide" class="menu-toggle">✖</button>
     </div>
 
     <main>
@@ -340,7 +387,7 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
                         </div>
                         <div class="mb-3">
                             <label for="fecha_entrega" class="form-label">Fecha de entrega:</label>
-                            <input type="date" id="fecha_entrega" name="fecha_entrega" class="form-control" required>
+                            <input type="date" id="fecha_entrega" name="fecha_entrega" class="form-control form-control-sm" style="width: auto;" required>
                         </div>
                         <div class="mb-3">
                             <label for="curso_id" class="form-label">Curso:</label>
@@ -404,6 +451,13 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
         </section>
     </main>
 
+    <!-- Popup de notificación -->
+    <div id="popup" class="popup">
+        <h2>Notificación de Curso</h2>
+        <p id="popup-message"></p>
+        <button class="close-btn" onclick="closePopup()">Cerrar</button>
+    </div>
+
     <script>
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var sidebar = document.getElementById('sidebar');
@@ -428,6 +482,47 @@ $horario = $controller->getHorario($_SESSION['alumno_id']);
                 var sidebar = document.getElementById('sidebar');
                 sidebar.style.transform = 'translateX(-100%)';
             });
+        });
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('show');
+        }
+
+        // Función para mostrar el popup de notificación
+        function showPopup(message) {
+            document.getElementById('popup-message').textContent = message;
+            document.getElementById('popup').classList.add('show');
+        }
+
+        // Función para calcular el tiempo hasta el próximo curso y mostrar el popup
+        function checkNextClass(horario) {
+            const now = new Date();
+            const today = now.toLocaleString('es-ES', { weekday: 'long' });
+            const currentTime = now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+
+            let nextClass = null;
+            let nextClassTime = null;
+
+            for (let clase of horario) {
+                if (clase.dia_semana.toLowerCase() === today.toLowerCase() && clase.hora_inicio > currentTime) {
+                    if (!nextClassTime || clase.hora_inicio < nextClassTime) {
+                        nextClass = clase.curso;
+                        nextClassTime = clase.hora_inicio;
+                    }
+                }
+            }
+
+            if (nextClass) {
+                showPopup(`Tu próximo curso es ${nextClass} a las ${nextClassTime}`);
+            } else {
+                showPopup('No tienes más clases hoy.');
+            }
+        }
+
+        // Verificar el próximo curso al cargar la página principal
+        window.addEventListener('load', function() {
+            const horario = <?php echo json_encode($horario); ?>;
+            checkNextClass(horario);
         });
     </script>
 </body>
