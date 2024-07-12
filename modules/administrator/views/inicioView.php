@@ -5,6 +5,7 @@ define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
 $administratorController = new AdministratorController();
 $cursos = $administratorController->getCursos();
+$grados = $administratorController->getGrados();
 
 ?>
 
@@ -89,7 +90,7 @@ $cursos = $administratorController->getCursos();
             >
                 <div class="m-3">
                     <h3 class="module-tag-header">Cursos</h3>
-                    <<table
+                    <table
                         class="table table-striped table-bordered border-danger small"
                     >
                         <thead>
@@ -118,14 +119,26 @@ $cursos = $administratorController->getCursos();
             >
                 <div class="m-3">
                     <h3 class="module-tag-header">Grados</h3>
-                    <span
-                        >Lorem ipsum dolor sit, amet consectetur
-                        adipisicing elit. Sapiente laborum ipsum hic
-                        itaque, obcaecati aliquid nam optio, eum
-                        consequatur nostrum atque, autem alias harum
-                        pariatur maiores quos! Ad, itaque
-                        cupiditate.</span
+                    <table
+                        class="table table-striped table-bordered border-danger small"
                     >
+                        <thead>
+                            <tr>
+                                <th scope="col">Grado</th>
+                                <th scope="col">Seccion</th>
+                                <th scope="col">Nro. Alumnos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($grados as $grado): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($grado['grado']); ?></td>
+                                    <td><?php echo htmlspecialchars($grado['seccion']); ?></td>
+                                    <td><?php echo htmlspecialchars($grado['cantidad']); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

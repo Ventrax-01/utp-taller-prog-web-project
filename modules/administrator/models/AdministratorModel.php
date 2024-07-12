@@ -86,5 +86,25 @@ class AdministratorModel {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getGrados() {
+        $stmt = $this->db->prepare("
+                SELECT
+                    CASE a.grado 
+                        WHEN 1 then '1er. Grado'
+                        WHEN 2 then '2do. Grado'
+                        WHEN 3 then '3er. Grado'
+                        WHEN 4 then '4to. Grado'
+                        WHEN 5 then '5to. Grado'
+                        ELSE '-'
+                    END as grado,
+                a.seccion , COUNT(a.id) as cantidad
+                FROM alumnos a 
+                group by a.grado , a.seccion 
+                order by a.grado , a.seccion 
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

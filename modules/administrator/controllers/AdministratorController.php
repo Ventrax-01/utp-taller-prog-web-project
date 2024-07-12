@@ -16,6 +16,10 @@ class AdministratorController {
         return $this->model->getCursos();
     }
 
+    public function getGrados() {
+        return $this->model->getGrados();
+    }
+
     public function createNewAlumno($correo, $contrasena, $recontrasena,$nombre, $grado, $seccion) {
         if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
             throw new Exception("El formato del correo electrónico no es válido.");
