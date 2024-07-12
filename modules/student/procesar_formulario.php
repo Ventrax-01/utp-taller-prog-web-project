@@ -1,6 +1,6 @@
 <?php
 
-define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com/');
+define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 require_once MAIN_PATH . '/db.php';
 
 

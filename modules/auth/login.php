@@ -1,6 +1,6 @@
 <?php
 session_start();
-define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com/');
+define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 echo "Funciona SESSION";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo MAIN_PATH . '/db.php';
