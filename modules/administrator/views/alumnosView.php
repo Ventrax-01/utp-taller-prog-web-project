@@ -52,58 +52,21 @@
                 aria-labelledby="listado-tab"
             >
                 <h3 class="module-tag-header">Listado de Alumnos</h3>
-                <div class="dropdown py-1">
+                <div class="py-1">
                     <span>Seleccione el grado: </span>
-                    <a
-                        class="btn btn-secondary dropdown-toggle"
-                        href="#"
-                        role="button"
-                        id="dropdownMenuLink"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        Todos.
-                    </a>
-
-                    <ul
-                        class="dropdown-menu"
-                        aria-labelledby="dropdownMenuLink"
-                    >
-                        <li>
-                            <a class="dropdown-item" href="#"
-                                >1er. Prim.</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                                >2do. Prim.</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                                >3er. Prim.</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                                >4to. Prim.</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                                >5to. Prim.</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#"
-                                >6to. Prim.</a
-                            >
-                        </li>
-                    </ul>
+                    <select id="selectGrado" class="form-select btn-secondary" aria-label="Default select example">
+                    <option selected>Todos</option>
+                    <option value="1">1er. Prim</option>
+                    <option value="2">2do. Prim</option>
+                    <option value="3">3er. Prim</option>
+                    <option value="4">4to. Prim</option>
+                    <option value="5">5to. Prim</option>
+                    <option value="6">6to. Prim</option>
+                    </select>
                 </div>
                 <div class="py-1">
                     <span>Seleccione la sección: </span>
-                    <select class="form-select btn-secondary" aria-label="Default select example">
+                    <select id="selectSeccion" class="form-select btn-secondary" aria-label="Default select example">
                     <option selected>Todos</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -578,3 +541,21 @@
         </div>
     </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    // Aquí va tu código jQuery
+    $(document).ready(function() {
+        $('#selectGrado').on('change', function() {
+            var gradoSeleccionado = $(this).val();
+            console.log('Grado seleccionado:', gradoSeleccionado);
+            // Aquí puedes realizar acciones adicionales según el valor seleccionado
+        });
+
+        $('#selectSeccion').on('change', function() {
+            var seccionSeleccionada = $(this).val();
+            console.log('Sección seleccionada:', seccionSeleccionada);
+            // Aquí puedes realizar acciones adicionales según el valor seleccionado
+        });
+    });
+</script>
