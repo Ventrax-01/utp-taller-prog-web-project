@@ -76,7 +76,7 @@ $alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'
                     <div class="py-1">
                         
                         <span>Seleccione el grado: </span>
-                        <select id="selectGrado" class="form-select btn-secondary" aria-label="Default select example">
+                        <select name="selectGrado" class="form-select btn-secondary" aria-label="Default select example">
                         <option value="" selected>Todos</option>
                         <option value="1">1er. Prim</option>
                         <option value="2">2do. Prim</option>
@@ -88,7 +88,7 @@ $alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'
                     </div>
                     <div class="py-1">
                         <span>Seleccione la sección: </span>
-                        <select id="selectSeccion" class="form-select btn-secondary" aria-label="Default select example">
+                        <select name="selectSeccion" class="form-select btn-secondary" aria-label="Default select example">
                         <option value="" selected>Todos</option>
                         <option value="A">A</option>
                         <option value="B">B</option>
