@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $result = $stmt->get_result();
                     $row = $result->fetch_assoc();
                     $_SESSION['alumno_id'] = $row['id'];
-                    $$_SESSION['nombre_alumno'] = $row['nombre'];
+                    $_SESSION['nombre_alumno'] = $row['nombre'];
                     echo "<script> location.href='/modules/student/index.php'; </script>";
                     break;
                 case 'profesor':
