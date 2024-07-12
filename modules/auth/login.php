@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
     echo "Funciona REQUIRE DB";
-    $sql = "SELECT user_id, nombre, contrasena, user_type FROM usuario WHERE correo = ?";
+    $sql = "SELECT user_id, contrasena, user_type FROM usuario WHERE correo = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $correo);
     $stmt->execute();
