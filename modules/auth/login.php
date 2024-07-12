@@ -2,12 +2,12 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require_once 'db.php';
+    require_once '/db.php';
 
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
 
-    $sql = "SELECT id, nombre, contrasena FROM alumnos WHERE correo = ?";
+    $sql = "SELECT user_id, nombre, contrasena, user_type FROM usuario WHERE correo = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $correo);
     $stmt->execute();
@@ -17,9 +17,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = $result->fetch_assoc();
 
         if ($contrasena == $row['contrasena']) {  // Comparar directamente en texto plano
-            $_SESSION['alumno_id'] = $row['id'];
-            $_SESSION['nombre_alumno'] = $row['nombre'];
-            echo "<script> location.href='index.php'; </script>";
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['nombre_usuario'] = $row['nombre'];
+            $_SESSION['user_type'] = $row['user_type'];
+
+            switch ($row['user_type']) {
+                case 'alumno':
+                    echo "<script> location.href='ruta_alumno.php'; </script>";
+                    break;
+                case 'profesor':
+                    echo "<script> location.href='ruta_profesor.php'; </script>";
+                    break;
+                case 'admin':
+                    echo "<script> location.href='ruta_admin.php'; </script>";
+                    break;
+                default:
+                    $error = "Tipo de usuario no válido.";
+            }
             exit();
         } else {
             $error = "Contraseña incorrecta.";

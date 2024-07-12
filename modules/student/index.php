@@ -1,7 +1,12 @@
 <?php
 session_start();
-if (!isset($_SESSION['alumno_id'])) {
-    echo "<script> location.href='login.php'; </script>";
+if (!isset($_SESSION['user_id'])) {
+    echo "<script> location.href='/modules/auth/login.php'; </script>";
+    exit();
+}
+
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'alumno') {
+    echo "<script> location.href='/modules/auth/login.php'; </script>";
     exit();
 }
 
