@@ -6,8 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
     $administratorControler = new AdministratorController();
 
-    $_SESSION['gradoSeleccionado'] = isset($_POST['grado']) ? $_POST['grado'] : null;
-    $_SESSION['seccionSeleccionada'] = isset($_POST['seccion']) ? $_POST['seccion'] : null;
+    $_SESSION['gradoSeleccionado'] = isset($_POST['selectGrado']) ? $_POST['selectGrado'] : null;
+    $_SESSION['seccionSeleccionada'] = isset($_POST['selectSeccion']) ? $_POST['selectSeccion'] : null;
 
     echo $_SESSION['gradoSeleccionado'];
     echo " test ";
