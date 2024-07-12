@@ -1,5 +1,4 @@
 <?php
-echo "3.1";
 
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 $dbConnection = require_once MAIN_PATH . '/db.php';
@@ -32,7 +31,6 @@ class AdministratorModel {
             LEFT JOIN notas n ON n.alumno_id = a.id 
             WHERE 1=1
         ";
-        echo " query ";
         // Añadir condiciones para filtros
         if ($filtro1 !== null) {
             $sql .= " AND a.grado = :filtro1";
@@ -44,9 +42,6 @@ class AdministratorModel {
 
         // Agrupar después de las condiciones WHERE
         $sql .= " GROUP BY a.id";
-
-        echo $sql;
-
         $stmt = $this->db->prepare($sql);
 
         if ($filtro1 !== null) {
@@ -56,9 +51,7 @@ class AdministratorModel {
         if ($filtro2 !== null) {
             $stmt->bindParam(':filtro2', $filtro2);
         }
-        echo "pre execute";
         $stmt->execute();
-        echo "tested";
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

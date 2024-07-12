@@ -1,10 +1,7 @@
 <?php
-echo "1";
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
-echo "2";
 $administratorControler = new AdministratorController();
-echo "3";
 $alumnos = $administratorControler->getAlumnosList();
 
 ?>
