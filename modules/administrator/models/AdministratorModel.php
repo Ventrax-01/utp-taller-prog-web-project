@@ -58,7 +58,7 @@ class AdministratorModel {
         }
         echo "pre execute";
         $stmt->execute();
-        echo "executed" ;
+        echo $stmt->fetchAll(PDO::FETCH_ASSOC) ;
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
