@@ -51,32 +51,35 @@
                 role="tabpanel"
                 aria-labelledby="listado-tab"
             >
-                <h3 class="module-tag-header">Listado de Alumnos</h3>
-                <div class="py-1">
-                    <span>Seleccione el grado: </span>
-                    <select id="selectGrado" class="form-select btn-secondary" aria-label="Default select example">
-                    <option selected>Todos</option>
-                    <option value="1">1er. Prim</option>
-                    <option value="2">2do. Prim</option>
-                    <option value="3">3er. Prim</option>
-                    <option value="4">4to. Prim</option>
-                    <option value="5">5to. Prim</option>
-                    <option value="6">6to. Prim</option>
-                    </select>
-                </div>
-                <div class="py-1">
-                    <span>Seleccione la sección: </span>
-                    <select id="selectSeccion" class="form-select btn-secondary" aria-label="Default select example">
-                    <option selected>Todos</option>
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    </select>
-                </div>
+                <form id="formListadoAlumnos">
+                    <h3 class="module-tag-header">Listado de Alumnos</h3>
+                    <div class="py-1">
+                        
+                        <span>Seleccione el grado: </span>
+                        <select id="selectGrado" class="form-select btn-secondary" aria-label="Default select example">
+                        <option value="" selected>Todos</option>
+                        <option value="1">1er. Prim</option>
+                        <option value="2">2do. Prim</option>
+                        <option value="3">3er. Prim</option>
+                        <option value="4">4to. Prim</option>
+                        <option value="5">5to. Prim</option>
+                        <option value="6">6to. Prim</option>
+                        </select>
+                    </div>
+                    <div class="py-1">
+                        <span>Seleccione la sección: </span>
+                        <select id="selectSeccion" class="form-select btn-secondary" aria-label="Default select example">
+                        <option value="" selected>Todos</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        </select>
+                    </div>
 
-                <button type="submit" class="btn btn-primary mb-2">
-                    Buscar
-                </button>
+                    <button type="submit" class="btn btn-primary mb-2">
+                        Buscar
+                    </button>
+                </form>
 
                 <table
                     class="table table-striped table-bordered border-danger small"
@@ -544,18 +547,19 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    // Aquí va tu código jQuery
     $(document).ready(function() {
-        $('#selectGrado').on('change', function() {
-            var gradoSeleccionado = $(this).val();
-            console.log('Grado seleccionado:', gradoSeleccionado);
-            // Aquí puedes realizar acciones adicionales según el valor seleccionado
-        });
+        // Capturar el evento de clic en el botón Buscar
+        $('#formBusqueda').on('submit', function(e) {
+            // Evitar que el formulario se envíe automáticamente
+            e.preventDefault();
 
-        $('#selectSeccion').on('change', function() {
-            var seccionSeleccionada = $(this).val();
+            // Obtener los valores seleccionados
+            var gradoSeleccionado = $('#selectGrado').val();
+            var seccionSeleccionada = $('#selectSeccion').val();
+
+            // Mostrar los valores seleccionados en consola (opcional)
+            console.log('Grado seleccionado:', gradoSeleccionado);
             console.log('Sección seleccionada:', seccionSeleccionada);
-            // Aquí puedes realizar acciones adicionales según el valor seleccionado
         });
     });
 </script>
