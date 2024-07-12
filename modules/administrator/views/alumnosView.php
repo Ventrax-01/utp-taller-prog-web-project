@@ -7,6 +7,8 @@ $administratorControler = new AdministratorController();
 echo "3";
 $alumnos = $administratorControler->getAlumnosList($_SESSION['user_id']);
 
+?>
+
 <div class="px-2 px-sm-5 px-lg-5">
     <div class="row g-2 g-sm-4 g-lg-4">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
