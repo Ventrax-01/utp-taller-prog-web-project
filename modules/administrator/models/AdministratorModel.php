@@ -34,11 +34,11 @@ class AdministratorModel {
         ";
         // Añadir condiciones para filtros
         echo "filtro1:"; echo $filtro1; echo ".";
-        if ($filtro1 !== null) {
+        if (!empty($filtro1)) {
             $sql .= " AND a.grado = :filtro1";
         }
         echo "filtro2:"; echo $filtro2; echo ".";
-        if ($filtro2 !== null) {
+        if (!empty($filtro2)) {
             $sql .= " AND a.seccion = :filtro2";
         }
 
