@@ -1,10 +1,12 @@
 <?php
-
+echo "1";
 require_once '../controllers/AdministratorController.php';
+echo "2";
 $administratorControler = new AdministratorController();
-
+echo "3";
 $alumnosList = $controller->getAlumnosList($_SESSION['user_id']);
 #echo $alumnosList;
+echo "4";
 
 ?>
 
