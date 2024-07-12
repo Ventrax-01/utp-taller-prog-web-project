@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "test";
             try {
                 echo " ing ";
+                echo $correo, $contrasena, $recontrasena, $nombre, $grado, $seccion;
                 $administratorController->createNewAlumno($correo, $contrasena, $recontrasena, $nombre, $grado, $seccion);
                 $message = '<div class="alert alert-success" role="alert">Alumno creado exitosamente!</div>';
             } catch (Exception $e) {
