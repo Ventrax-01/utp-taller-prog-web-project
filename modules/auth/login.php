@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
-    $sql = "SELECT user_id, contrasena, user_type FROM usuario WHERE correo = ?";
+    $sql = "SELECT user_id, correo, contrasena, user_type FROM usuario WHERE correo = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $correo);
     $stmt->execute();
@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         if ($contrasena == $row['contrasena']) {  // Comparar directamente en texto plano
+            $_SESSION['correo'] = $row['correo'];
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['user_type'] = $row['user_type'];
             switch ($row['user_type']) {

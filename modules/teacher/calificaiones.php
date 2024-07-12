@@ -12,6 +12,11 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            /* Establecer fondo */
+            background-image: url('fondo21.jpg');
+            background-size: cover; /* Ajuste para cubrir el área completa */
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .header-container {
             display: flex;
@@ -25,10 +30,13 @@
             margin: 0;
             color: black;
             text-align: center;
+            order: 2;
             flex: 1;
+            text-align: right;
         }
         .menu-toggle-container {
             margin-right: 20px;
+            order: 1;
         }
         .menu-toggle {
             background-color: #fe9187;
@@ -65,7 +73,9 @@
             padding: 20px;
             text-align: center;
             position: relative;
-            margin-bottom: 60px; /* Added margin to prevent footer overlap */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
         .bajo {
             background-color: #fe9187;
@@ -75,7 +85,6 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            z-index: 1000;
         }
         .sidebar {
             position: fixed;
@@ -109,6 +118,7 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            flex: 1;
         }
         h2 {
             text-align: center;
@@ -124,31 +134,14 @@
         .course h3 {
             margin-top: 0;
         }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .header-container h1 {
-                text-align: left;
-                order: 1;
-            }
-            .menu-toggle-container {
-                order: 2;
-                margin-right: 0;
-            }
-            .menu-toggle {
-                width: 100%;
-                text-align: left;
-            }
+        .table-container {
+            flex: 1;
+            margin-right: 20px;
+            overflow-y: auto; /* Agregamos overflow-y para la barra de desplazamiento */
+            max-height: 500px; /* Altura máxima para controlar la barra de desplazamiento */
         }
-
-        @media (max-width: 576px) {
-            .sidebar {
-                width: 100%;
-                left: -100%;
-            }
+        .form-container {
+            flex: 1;
         }
     </style>
 </head>
@@ -168,94 +161,135 @@
         <li><a href="Cursos.php"><i class="fas fa-book"></i> Cursos</a></li>
         <li><a href="calificaiones.php"><i class="fas fa-clipboard-check"></i> Calificaciones</a></li>
         <li><a href="asistencia.php"><i class="fas fa-user-check"></i> Asistencia</a></li>
-        <li><a href="#"><i class="fas fa-tasks"></i> Tareas</a></li>
-        <li><a href="#"><i class="fas fa-chalkboard"></i> Aulas</a></li>
-        <li><a href="https://www.utp.edu.pe/web/"><i class="fas fa-address-book"></i> Contacto</a></li>
+        <li><a href="tarea_profe.php"><i class="fas fa-tasks"></i> Tareas</a></li>
+        <li><a href="aula.php"><i class="fas fa-chalkboard"></i> Aulas</a></li>
+        
     </ul>
 </div>
 
 <section>
+   
     <div class="container">
         <h2>Calificaciones</h2>
-        <table class="table table-bordered" style="border-color: black;">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Matemáticas</th>
-                    <th>Ciencias</th>
-                    <th>Historia</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $students = [
-                    ["Sofía Martínez", 18, 20, 14],
-                    ["Juan Rodríguez", 15, 17, 16],
-                    ["Ana Pérez", 16, 19, 13],
-                    ["Carlos López", 19, 18, 15],
-                    ["Marta García", 17, 16, 18],
-                    ["Pablo Fernández", 20, 19, 17],
-                    ["Laura González", 16, 15, 14],
-                    ["David Sánchez", 18, 17, 19],
-                    ["María López", 17, 18, 16],
-                    ["Lucía Martínez", 19, 20, 18],
-                    ["Maykol", 19, 20, 18]
-                    ,
-                ];
-                
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    $studentName = $_POST["student_name"];
-                    $mathGrade = $_POST["math_grade"];
-                    $scienceGrade = $_POST["science_grade"];
-                    $historyGrade = $_POST["history_grade"];
-                    
-                    // Agregar el nuevo estudiante a la lista
-                    $newStudent = [$studentName, $mathGrade, $scienceGrade, $historyGrade];
-                    array_push($students, $newStudent);
-                }
+        <div class="table-container">
+            
+            <table class="table table-bordered" style="border-color: black;">
+                <thead>
+                    <tr>
+                        <th>ALUMNOS</th>
+                        <th>Matemáticas</th>
+                        <th>Química</th>
+                        <th>Historia</th>
+                        <th>Geografía</th>
+                        <th>Lenguaje</th>
+                        <th>Biología</th>
+                        <th>Psicología</th>
+                        <th>Arte</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Conexión a la base de datos
+                    $servername = "18.217.140.227"; // Nombre del servidor
+                    $username = "admin_xyz"; // Nombre de usuario de MySQL
+                    $password = "colegio_xyz"; // Contraseña de MySQL
+                    $database = "colegio_xyz"; // Nombre de la base de datos
 
-                foreach ($students as $index => $student) {
-                    echo "<tr>";
-                    echo "<th>" . $student[0] . "</th>";
-                    for ($i = 1; $i < count($student); $i++) {
-                        echo "<td>" . $student[$i] . "</td>";
+                    $conn = new mysqli($servername, $username, $password, $database);
+
+                    // Verificar conexión
+                    if ($conn->connect_error) {
+                        die("Conexión fallida: " . $conn->connect_error);
                     }
-                    echo "</tr>";
-                }
-                ?>
-            </tbody>
-        </table>
 
-        <form method="post" action="">
-            <div class="mb-3">
-                <label for="student_name" class="form-label">Nombre del Estudiante</label>
-                <input type="text" class="form-control" id="student_name" name="student_name" required>
-            </div>
-            <div class="mb-3">
-                <label for="math_grade" class="form-label">Nota de Matemáticas</label>
-                <input type="number" class="form-control" id="math_grade" name="math_grade" min="0" max="20" required>
-            </div>
-            <div class="mb-3">
-                <label for="science_grade" class="form-label">Nota de Ciencias</label>
-                <input type="number" class="form-control" id="science_grade" name="science_grade" min="0" max="20" required>
-            </div>
-            <div class="mb-3">
-                <label for="history_grade" class="form-label">Nota de Historia</label>
-                <input type="number" class="form-control" id="history_grade" name="history_grade" min="0" max="20" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Agregar Estudiante</button>
-        </form>
+                    // Query para obtener las calificaciones
+                    $sql = "SELECT id, nombre, matematicas, quimica, historia, geografia, lenguaje, biologia, psicologia, arte FROM calificaciones";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<th>" . $row['nombre'] . "</th>";
+                            echo "<td>" . $row['matematicas'] . "</td>";
+                            echo "<td>" . $row['quimica'] . "</td>";
+                            echo "<td>" . $row['historia'] . "</td>";
+                            echo "<td>" . $row['geografia'] . "</td>";
+                            echo "<td>" . $row['lenguaje'] . "</td>";
+                            echo "<td>" . $row['biologia'] . "</td>";
+                            echo "<td>" . $row['psicologia'] . "</td>";
+                            echo "<td>" . $row['arte'] . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='9'>No se encontraron resultados.</td></tr>";
+                    }
+
+                    // Cerrar conexión
+                    $conn->close();
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-container">
+            <h2>Actualizar Nota</h2>
+            <form method="post" action="actualizar_nota.php">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Seleccionar Nombre del Estudiante</label>
+                    <select class="form-select" id="nombre" name="nombre" required>
+                        <option value="">Seleccionar Estudiante</option>
+                        <?php
+                        // Conexión a la base de datos (de nuevo para el selector)
+                        $conn2 = new mysqli($servername, $username, $password, $database);
+
+                        // Verificar conexión
+                        if ($conn2->connect_error) {
+                            die("Conexión fallida: " . $conn2->connect_error);
+                        }
+
+                        // Query para obtener los nombres de los estudiantes
+                        $sql2 = "SELECT nombre FROM calificaciones";
+                        $result2 = $conn2->query($sql2);
+
+                        if ($result2->num_rows > 0) {
+                            while ($row2 = $result2->fetch_assoc()) {
+                                echo "<option value='" . $row2['nombre'] . "'>" . $row2['nombre'] . "</option>";
+                            }
+                        }
+
+                        // Cerrar conexión
+                        $conn2->close();
+                        ?>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="curso" class="form-label">Seleccionar Curso</label>
+                    <select class="form-select" id="curso" name="curso" required>
+                        <option value="matematicas">Matemáticas</option>
+                        <option value="quimica">Química</option>
+                        <option value="historia">Historia</option>
+                        <option value="geografia">Geografía</option>
+                        <option value="lenguaje">Lenguaje</option>
+                        <option value="biologia">Biología</option>
+                        <option value="psicologia">Psicología</option>
+                        <option value="arte">Arte</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="nota" class="form-label">Ingresar Nueva Nota</label>
+                    <input type="number" class="form-control" id="nota" name="nota" min="0" max="20" step="0.1" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Actualizar Nota</button>
+            </form>
+        </div>
     </div>
 </section>
 
-<div class="bajo">
-    <h3>Todos los derechos reservados</h3>
-</div>
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 <script>
     document.getElementById('menu-toggle').addEventListener('click', function() {
-        const sidebar = document.getElementById('sidebar');
-        sidebar.style.left = sidebar.style.left === '0px' ? '-250px' : '0px';
+        document.getElementById('sidebar').style.left = '0';
         this.classList.toggle('active');
     });
 
@@ -270,7 +304,5 @@
         }
     });
 </script>
-
 </body>
 </html>
-

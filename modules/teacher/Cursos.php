@@ -68,6 +68,7 @@
             padding: 20px;
             text-align: center;
             position: relative;
+            padding-bottom: 60px; /* Extra padding to accommodate the footer */
         }
         .bajo {
             background-color: #fe9187;
@@ -108,23 +109,70 @@
             text-decoration: none;
         }
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         h2 {
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
+        }
+        .courses-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
         }
         .course {
             border: 1px solid #ddd;
             padding: 20px;
-            margin: 10px 0;
+            width: calc(50% - 20px);
+            box-sizing: border-box;
             border-radius: 10px;
             background-color: #f9f9f9;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .course img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
         .course h3 {
             margin-top: 0;
-        }s
+            color: #333;
+        }
+        .course p {
+            color: #666;
+        }
+        .course:hover {
+            background-color: #eaeaea;
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            .header-container h1 {
+                order: 1;
+                text-align: center;
+            }
+            .menu-toggle-container {
+                order: 2;
+                margin-right: 0;
+            }
+            .sidebar {
+                left: -100%;
+            }
+            .menu-toggle.active {
+                transform: rotate(0deg);
+            }
+            .course {
+                width: calc(100% - 20px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -143,26 +191,56 @@
         <li><a href="Cursos.php"><i class="fas fa-book"></i> Cursos</a></li>
         <li><a href="calificaiones.php"><i class="fas fa-clipboard-check"></i> Calificaciones</a></li>
         <li><a href="asistencia.php"><i class="fas fa-user-check"></i> Asistencia</a></li>
-        <li><a href="#"><i class="fas fa-tasks"></i> Tareas</a></li>
-        <li><a href="#"><i class="fas fa-chalkboard"></i> Aulas</a></li>
-        <li><a href="https://www.utp.edu.pe/web/"><i class="fas fa-address-book"></i> Contacto</a></li>
+        <li><a href="tarea_profe.php"><i class="fas fa-tasks"></i> Tareas</a></li>
+        <li><a href="aula.php"><i class="fas fa-chalkboard"></i> Aulas</a></li>
+        
     </ul>
 </div>
 
 <section>
     <div class="container">
         <h2>Cursos Disponibles</h2>
-        <div class="course">
-            <h3>Matemáticas</h3>
-            <p>Descripción del curso de matemáticas. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
-        </div>
-        <div class="course">
-            <h3>Ciencias</h3>
-            <p>Descripción del curso de ciencias. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
-        </div>
-        <div class="course">
-            <h3>Historia</h3>
-            <p>Descripción del curso de historia. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
+        <div class="courses-grid">
+            <div class="course" onclick="location.href='modulo.php';">
+                <img src="mate.jpg" alt="Matemáticas">
+                <h3>Matemáticas</h3>
+                <p>CALIFICAR NOTA</p>
+            </div>
+            <div class="course" onclick="location.href='modulo.php';">
+                <img src="ciencia.jpeg" alt="Química">
+                <h3>Química</h3>
+                <p>Descripción del curso de ciencias. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
+            </div>
+            <div class="course" onclick="location.href='modulo.php';">
+                <img src="histor.jpg" alt="Historia">
+                <h3>Historia</h3>
+                <p>Descripción del curso de historia. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
+            </div>
+            <div class="course" onclick="location.href='modulo.php';">
+                <img src="geo.jpeg" alt="Geografía">
+                <h3>Geografía</h3>
+                <p>Descripción del curso de geografía. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
+            </div>
+            <div class="course" onclick="location.href='modulo.php';">
+                <img src="lengu.jpg" alt="Lenguaje">
+                <h3>Lenguaje</h3>
+                <p>Descripción del curso de lenguaje. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
+            </div>
+            <div class="course" onclick="location.href='modulo.php';">
+                <img src="bio.jpg" alt="Biología">
+                <h3>Biología</h3>
+                <p>Descripción del curso de geografía. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
+            </div>
+            <div class="course" onclick="location.href='modulo.php';">
+                <img src="pisi.jpg" alt="Psicología">
+                <h3>Psicología</h3>
+                <p>Descripción del curso de geografía. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
+            </div>
+            <div class="course" onclick="location.href='modulo.php';">
+                <img src="arte.jpg" alt="Arte">
+                <h3>Arte</h3>
+                <p>Descripción del curso de geografía. Aquí los profesores pueden gestionar las asignaciones, notas y más.</p>
+            </div>
         </div>
     </div>
 </section>

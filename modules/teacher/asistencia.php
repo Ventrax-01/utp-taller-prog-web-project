@@ -1,32 +1,37 @@
 <?php
 session_start();
 
+// Datos de conexión a la base de datos
+$servername = "18.217.140.227";
+$username = "admin_xyz";
+$password = "colegio_xyz";
+$database = "colegio_xyz";
 
-if (!isset($_SESSION['students'])) {
-    $_SESSION['students'] = [
-        ["Sofía Martínez", "Presente", "Ausente", "Presente"],
-        ["Juan Rodríguez", "Presente", "Presente", "Ausente"],
-        ["Ana Pérez", "Ausente", "Presente", "Presente"],
-        ["Carlos López", "Presente", "Presente", "Presente"],
-        ["Marta García", "Presente", "Presente", "Presente"],
-        ["Pablo Fernández", "Ausente", "Ausente", "Ausente"],
-        ["Laura González", "Presente", "Ausente", "Presente"],
-        ["David Sánchez", "Ausente", "Presente", "Presente"],
-        ["María López", "Presente", "Ausente", "Presente"],
-        ["Lucía Martínez", "Presente", "Presente", "Presente"],
-    ];
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 
+// Consulta SQL para obtener los datos de asistencia
+$sql = "SELECT * FROM asistencia";
+$result = $conn->query($sql);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $new_student = [
-        $_POST['student_name'],
-        $_POST['math_status'],
-        $_POST['science_status'],
-        $_POST['history_status']
-    ];
-    $_SESSION['students'][] = $new_student;
+// Variable para almacenar los datos de los estudiantes
+$students = [];
+
+if ($result->num_rows > 0) {
+    // Iterar sobre los resultados y almacenarlos en un array
+    while ($row = $result->fetch_assoc()) {
+        $students[] = $row;
+    }
+} else {
+    echo "No se encontraron registros de asistencia.";
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            /* Establecer fondo */
+            background-image: url('fondo21.jpg');
+            background-size: cover; /* Ajuste para cubrir el área completa */
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .header-container {
             display: flex;
@@ -55,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .header-container h1 {
             margin: 0;
             color: black;
-            text-align: center;
+            text-align: right;
             flex: 1;
         }
         .menu-toggle-container {
@@ -76,37 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         .menu-toggle.active {
             transform: rotate(90deg);
-        }
-        nav {
-            background-color: black;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        section {
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            margin-bottom: 60px; /* Added margin to prevent footer overlap */
-        }
-        .bajo {
-            background-color: #fe9187;
-            color: black;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 1000;
         }
         .sidebar {
             position: fixed;
@@ -166,15 +145,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .student-list td {
             text-align: center;
         }
-        .add-student-form {
-            margin-top: 20px;
-            text-align: left;
-        }
-        .add-student-form .form-group {
-            margin-bottom: 15px;
-        }
-        .add-student-form .form-group label {
-            font-weight: bold;
+        .bajo {
+            background-color: #fe9187;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -192,11 +171,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <ul>
         <li><a href="index.php"><i class="fas fa-home"></i> Inicio</a></li>
         <li><a href="Cursos.php"><i class="fas fa-book"></i> Cursos</a></li>
-        <li><a href="calificaciones.php"><i class="fas fa-clipboard-check"></i> Calificaciones</a></li>
+        <li><a href="calificaiones.php"><i class="fas fa-clipboard-check"></i> Calificaciones</a></li>
         <li><a href="asistencia.php"><i class="fas fa-user-check"></i> Asistencia</a></li>
-        <li><a href="#"><i class="fas fa-tasks"></i> Tareas</a></li>
-        <li><a href="#"><i class="fas fa-chalkboard"></i> Aulas</a></li>
-        <li><a href="https://www.utp.edu.pe/web/"><i class="fas fa-address-book"></i> Contacto</a></li>
+        <li><a href="tarea_profe.php"><i class="fas fa-tasks"></i> Tareas</a></li>
+        <li><a href="aula.php"><i class="fas fa-chalkboard"></i> Aulas</a></li>
+        
     </ul>
 </div>
 
@@ -210,59 +189,71 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <tr>
                         <th>Nombre del Estudiante</th>
                         <th>Matemáticas</th>
-                        <th>Ciencias</th>
+                        <th>Química</th>
                         <th>Historia</th>
+                        <th>Geografía</th>
+                        <th>Lenguaje</th>
+                        <th>Biología</th>
+                        <th>Psicología</th>
+                        <th>Arte</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    // Mostrar la lista de estudiantes
-                    foreach ($_SESSION['students'] as $student) {
-                        echo "<tr>";
-                        echo "<td>" . $student[0] . "</td>";
-                        for ($i = 1; $i < count($student); $i++) {
-                            echo "<td>" . $student[$i] . "</td>";
-                        }
-                        echo "</tr>";
-                    }
-                    ?>
+                    <?php foreach ($students as $student): ?>
+                        <tr>
+                            <td><?php echo $student['nombre']; ?></td>
+                            <td><?php echo $student['matematicas']; ?></td>
+                            <td><?php echo $student['quimica']; ?></td>
+                            <td><?php echo $student['historia']; ?></td>
+                            <td><?php echo $student['geografia']; ?></td>
+                            <td><?php echo $student['lenguaje']; ?></td>
+                            <td><?php echo $student['biologia']; ?></td>
+                            <td><?php echo $student['psicologia']; ?></td>
+                            <td><?php echo $student['arte']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
 
-        <div class="add-student-form">
-            <h3>Agregar Registro de Asistencia</h3>
-            <form method="post" action="">
-                <div class="form-group">
-                    <label for="student_name">Nombre del Estudiante</label>
-                    <input type="text" class="form-control" id="student_name" name="student_name" required>
-                </div>
-                <div class="form-group">
-                    <label for="math_status">Puntualidad de Matemáticas</label>
-                    <select class="form-control" id="math_status" name="math_status" required>
-                        <option value="Presente">Presente</option>
-                        <option value="Ausente">Ausente</option>
+        <!-- Agregar el nuevo formulario aquí -->
+        <div class="mt-4">
+            <h3>Registrar Asistencia</h3>
+            <form action="guardar_asistencia.php" method="POST">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Estudiante</label>
+                    <select class="form-select" id="nombre" name="nombre" required>
+                        <?php foreach ($students as $student): ?>
+                            <option value="<?php echo $student['nombre']; ?>"><?php echo $student['nombre']; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="science_status">Puntualidad de Ciencias</label>
-                    <select class="form-control" id="science_status" name="science_status" required>
-                        <option value="Presente">Presente</option>
-                        <option value="Ausente">Ausente</option>
+                <div class="mb-3">
+                    <label for="curso" class="form-label">Seleccionar Curso</label>
+                    <select class="form-select" id="curso" name="curso" required>
+                        <option value="matematicas">Matemáticas</option>
+                        <option value="quimica">Química</option>
+                        <option value="historia">Historia</option>
+                        <option value="geografia">Geografía</option>
+                        <option value="lenguaje">Lenguaje</option>
+                        <option value="biologia">Biología</option>
+                        <option value="psicologia">Psicología</option>
+                        <option value="arte">Arte</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="history_status">Puntualidad de Historia</label>
-                    <select class="form-control" id="history_status" name="history_status" required>
+                <div class="mb-3">
+                    <label for="asistencia" class="form-label">Ingresar Asistencia (Presente o Falto)</label>
+                    <select class="form-select" id="asistencia" name="asistencia" required>
                         <option value="Presente">Presente</option>
-                        <option value="Ausente">Ausente</option>
+                        <option value="Falto">Falto</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Agregar Registro</button>
+                <button type="submit" class="btn btn-primary">Guardar Asistencia</button>
             </form>
         </div>
     </div>
 </section>
+
 
 <div class="bajo">
     <h3>Todos los derechos reservados</h3>
@@ -289,4 +280,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 </body>
 </html>
-
