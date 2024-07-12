@@ -198,6 +198,7 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'profesor') {
         <li><a href="asistencia.php"><i class="fas fa-user-check"></i> Asistencia</a></li>
         <li><a href="tarea_profe.php"><i class="fas fa-tasks"></i> Tareas</a></li>
         <li><a href="aula.php"><i class="fas fa-chalkboard"></i> Aulas</a></li>
+        <li><a href="/modules/auth/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</a></li>
         
     </ul>
 </div>
