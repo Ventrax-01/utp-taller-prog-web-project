@@ -13,8 +13,6 @@ class AdministratorController {
 
     public function getAlumnosList($filtro1 = null, $filtro2 = null) {
         echo " pre call getalumnos model ";
-
-        echo print_r($this->model->getAlumnosList($filtro1 = null, $filtro2 = null));
         return $this->model->getAlumnosList($filtro1 = null, $filtro2 = null);
     }
 }
