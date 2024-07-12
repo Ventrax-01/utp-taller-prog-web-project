@@ -5,10 +5,10 @@ echo "Funciona SESSION";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo MAIN_PATH . '/db.php';
     require_once MAIN_PATH . '/db.php';
-    echo "Funciona REQUIRE DB";
+    
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
-
+    echo "Funciona REQUIRE DB";
     $sql = "SELECT user_id, nombre, contrasena, user_type FROM usuario WHERE correo = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $correo);
@@ -20,11 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Funciona FETCH";
         if ($contrasena == $row['contrasena']) {  // Comparar directamente en texto plano
             $_SESSION['user_id'] = $row['user_id'];
-            $_SESSION['nombre_usuario'] = $row['nombre'];
             $_SESSION['user_type'] = $row['user_type'];
             echo "Funciona SESSION";
             switch ($row['user_type']) {
                 case 'alumno':
+                    $sql = "SELECT id, nombre, grado, user_id FROM alumnos WHERE user_id = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("s", $_SESSION['user_id']);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $row = $result->fetch_assoc();
+                    $_SESSION['alumno_id'] = $row['id'];
+                    $$_SESSION['nombre_alumno'] = $row['nombre'];
                     echo "<script> location.href='/modules/student/index.php'; </script>";
                     break;
                 case 'profesor':
