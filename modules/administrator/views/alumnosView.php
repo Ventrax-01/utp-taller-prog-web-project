@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 role="tabpanel"
                 aria-labelledby="listado-tab"
             >
-                <form id="formListadoAlumnos"  method="post">
+                <form id="formListadoAlumnos"  method="post" action="alumnosView.php">
                     <h3 class="module-tag-header">Listado de Alumnos</h3>
                     <div class="py-1">
                         
