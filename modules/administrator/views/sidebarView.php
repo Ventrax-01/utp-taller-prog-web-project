@@ -23,7 +23,7 @@
             class="navbar-nav justify-content-end flex-grow-1 pe-4"
         >
             <li class="nav-item">
-                <a class="nav-link offcanvas-nav-link" href="/modules/administrator/"
+                <a class="nav-link offcanvas-nav-link" href="/modules/administrator/index.php"
                     ><i
                         class="fa-solid fa-shapes fa-offcanvas-logos fa-fw"
                     ></i
@@ -36,7 +36,7 @@
             <li class="nav-item">
                 <a
                     class="nav-link d-inline-block offcanvas-nav-link"
-                    href="alumnos.html"
+                    href="alumnos.php"
                 >
                     <i
                         class="fa-solid fa-user-graduate fa-offcanvas-logos fa-fw"
