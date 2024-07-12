@@ -11,6 +11,7 @@ class AdministratorModel {
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     public function getAlumnosList($alumno_id, $filtro1 = null, $filtro2 = null) {
+        echo "model"; echo $filtro1; echo $filtro2; echo "model";
         $sql = "
             SELECT 
                 a.id,
