@@ -1,27 +1,23 @@
 <?php
 session_start();
+session_unset();
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 echo "Funciona SESSION";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo MAIN_PATH . '/db.php';
     require_once MAIN_PATH . '/db.php';
     
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
-    echo "Funciona REQUIRE DB";
     $sql = "SELECT user_id, contrasena, user_type FROM usuario WHERE correo = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $correo);
     $stmt->execute();
     $result = $stmt->get_result();
-    echo "Funciona DB";
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
-        echo "Funciona FETCH";
         if ($contrasena == $row['contrasena']) {  // Comparar directamente en texto plano
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['user_type'] = $row['user_type'];
-            echo "Funciona SESSION";
             switch ($row['user_type']) {
                 case 'alumno':
                     $sql = "SELECT id, nombre, grado, user_id FROM alumnos WHERE user_id = ?";
