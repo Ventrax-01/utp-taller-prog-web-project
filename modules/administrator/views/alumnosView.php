@@ -65,13 +65,40 @@
                         Todos.
                     </a>
 
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="#" data-grado="1">1er. Prim.</a></li>
-                        <li><a class="dropdown-item" href="#" data-grado="2">2do. Prim.</a></li>
-                        <li><a class="dropdown-item" href="#" data-grado="3">3er. Prim.</a></li>
-                        <li><a class="dropdown-item" href="#" data-grado="4">4to. Prim.</a></li>
-                        <li><a class="dropdown-item" href="#" data-grado="5">5to. Prim.</a></li>
-                        <li><a class="dropdown-item" href="#" data-grado="6">6to. Prim.</a></li>
+                    <ul
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuLink"
+                    >
+                        <li>
+                            <a class="dropdown-item" href="#"
+                                >1er. Prim.</a
+                            >
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"
+                                >2do. Prim.</a
+                            >
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"
+                                >3er. Prim.</a
+                            >
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"
+                                >4to. Prim.</a
+                            >
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"
+                                >5to. Prim.</a
+                            >
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#"
+                                >6to. Prim.</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <div class="dropdown py-1">
