@@ -1,4 +1,5 @@
 <?php
+echo "3.1";
 class AdministratorModel {
     private $db;
 

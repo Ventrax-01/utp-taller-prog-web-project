@@ -1,6 +1,7 @@
 <?php
+echo "2.1";
 require_once '/modules/administrator/models/AdministratorModel.php';
-
+echo "2.2";
 class AdministratorController {
     private $model;
 
