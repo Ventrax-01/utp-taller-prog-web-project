@@ -4,7 +4,7 @@ define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 
 
 require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
-$administratorControler = new AdministratorController();
+$administratorController = new AdministratorController();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['form_type'])) {
         $formType = $_POST['form_type'];
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 echo $_SESSION['gradoSeleccionado'];
 echo $_SESSION['seccionSeleccionada'];
-$alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'],$_SESSION['seccionSeleccionada']);
+$alumnos = $administratorController->getAlumnosList($_SESSION['gradoSeleccionado'],$_SESSION['seccionSeleccionada']);
 
 ?>
 
