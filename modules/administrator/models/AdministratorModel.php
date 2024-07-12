@@ -8,10 +8,9 @@ class AdministratorModel {
 
     public function __construct() {
         
-        echo "Model construct ";
-        $this->db = $conn;
+        $this->db = new PDO('mysql:host=18.217.140.227;dbname=colegio_xyz', 'admin_xyz', 'colegio_xyz');
+        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-
     public function getAlumnosList($alumno_id, $filtro1 = null, $filtro2 = null) {
         $sql = "
             SELECT 
