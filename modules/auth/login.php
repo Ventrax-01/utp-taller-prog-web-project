@@ -2,7 +2,7 @@
 session_start();
 session_unset();
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
-echo "Funciona SESSION";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once MAIN_PATH . '/db.php';
     
