@@ -11,7 +11,6 @@ class AdministratorModel {
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     public function getAlumnosList($filtro1 = null, $filtro2 = null) {
-        echo "model"; echo $filtro1; echo $filtro2; echo "model";
         $sql = "
             SELECT 
                 a.id,
@@ -33,18 +32,15 @@ class AdministratorModel {
             WHERE 1=1
         ";
         // Añadir condiciones para filtros
-        echo "filtro1:"; echo $filtro1; echo ".";
         if (!empty($filtro1)) {
             $sql .= " AND a.grado = :filtro1";
         }
-        echo "filtro2:"; echo $filtro2; echo ".";
         if (!empty($filtro2)) {
             $sql .= " AND a.seccion = :filtro2";
         }
 
         // Agrupar después de las condiciones WHERE
         $sql .= " GROUP BY a.id ORDER BY a.grado, a.id";
-        echo $sql;
         $stmt = $this->db->prepare($sql);
 
         if (!empty($filtro1)) {
@@ -56,6 +52,31 @@ class AdministratorModel {
         }
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function createAlumno($correo, $contrasena, $nombre, $grado, $seccion) {
+        try {
+            $this->db->beginTransaction();
+
+            $sql = "INSERT INTO usuario (correo, contrasena, user_type) VALUES (:correo, :contrasena, 'alumno')";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':correo', $correo);
+            $stmt->bindParam(':contrasena', $hashed_password);
+            $stmt->execute();
+            $user_id = $this->db->lastInsertId();
+
+            $sql = "INSERT INTO alumnos (nombre, grado, user_id, seccion) VALUES (:nombre, :grado, :user_id, :seccion)";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':grado', $grado);
+            $stmt->bindParam(':user_id', $user_id);
+            $stmt->bindParam(':seccion', $seccion);
+            $stmt->execute();
+
+            $this->db->commit();
+        } catch (Exception $e) {
+            $this->db->rollBack();
+            throw $e;
+        }
     }
 }
 ?>
