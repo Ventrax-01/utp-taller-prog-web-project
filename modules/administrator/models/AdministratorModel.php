@@ -41,7 +41,7 @@ class AdministratorModel {
         }
 
         // Agrupar después de las condiciones WHERE
-        $sql .= " GROUP BY a.id";
+        $sql .= " GROUP BY a.id ORDER BY a.grado, a.id";
         $stmt = $this->db->prepare($sql);
 
         if ($filtro1 !== null) {
