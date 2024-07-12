@@ -1,7 +1,7 @@
 <?php
 echo "2.1";
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
-require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
+require_once MAIN_PATH . '/modules/administrator/models/AdministratorModel.php';
 echo "2.2";
 class AdministratorController {
     private $model;
