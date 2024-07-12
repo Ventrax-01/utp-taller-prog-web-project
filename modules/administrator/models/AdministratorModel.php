@@ -47,11 +47,11 @@ class AdministratorModel {
         echo $sql;
         $stmt = $this->db->prepare($sql);
 
-        if ($filtro1 !== null) {
+        if (!empty($filtro1)) {
             $stmt->bindParam(':filtro1', $filtro1);
         }
 
-        if ($filtro2 !== null) {
+        if (!empty($filtro2)) {
             $stmt->bindParam(':filtro2', $filtro2);
         }
         $stmt->execute();
