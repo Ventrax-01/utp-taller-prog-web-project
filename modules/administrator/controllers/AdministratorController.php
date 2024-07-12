@@ -12,6 +12,7 @@ class AdministratorController {
     }
 
     public function getAlumnosList($alumno_id, $filtro1 = null, $filtro2 = null) {
+        echo " pre call getalumnos model ";
         return $this->model->getAlumnosList($alumno_id, $filtro1 = null, $filtro2 = null);
     }
 }
