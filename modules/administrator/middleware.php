@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'administrador') {
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'admin') {
     echo "<script> location.href='/modules/auth/login.php'; </script>";
     exit();
 }
