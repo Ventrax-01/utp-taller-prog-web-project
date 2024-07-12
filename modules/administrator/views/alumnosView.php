@@ -7,7 +7,9 @@ $administratorControler = new AdministratorController();
 echo "3";
 $alumnosList = $administratorControler->getAlumnosList($_SESSION['user_id']);
 #echo $alumnosList;
-echo "4";
+echo "  ";
+
+echo $alumnosList;
 
 ?>
 
