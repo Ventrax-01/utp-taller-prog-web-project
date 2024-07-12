@@ -1,9 +1,18 @@
 <?php
 echo "3.1";
+
+define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
+$dbConnection = require_once MAIN_PATH . '/db.php';
 class AdministratorModel {
     private $db;
 
-    public function __construct($dbConnection) {
+    public function __construct() {
+        
+        
+        
+        echo "Model construct ";
+        $this->db = $dbConnection;
+
         $this->conn = $dbConnection;
     }
 

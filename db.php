@@ -10,4 +10,6 @@ if ($conn->connect_error) {
     echo "ERROR";
     die("Connection failed: " . $conn->connect_error);
 }
+
+return $conn;
 ?>

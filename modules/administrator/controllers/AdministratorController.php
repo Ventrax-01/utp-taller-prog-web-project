@@ -7,6 +7,7 @@ class AdministratorController {
     private $model;
 
     public function __construct() {
+        echo " controller construct ";
         $this->model = new AdministratorModel();
     }
 
