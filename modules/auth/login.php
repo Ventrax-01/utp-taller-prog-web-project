@@ -1,9 +1,9 @@
 <?php
 session_start();
-
+echo "Funciona SESSION";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once '/db.php';
-
+    echo "Funciona REQUIRE DB";
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
 
