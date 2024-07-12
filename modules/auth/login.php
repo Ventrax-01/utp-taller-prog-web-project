@@ -1,8 +1,9 @@
 <?php
 session_start();
+define('MAIN_PATH', dirname(__DIR__));
 echo "Funciona SESSION";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require_once '/db.php';
+    require_once MAIN_PATH . '/db.php';
     echo "Funciona REQUIRE DB";
     $correo = $_POST['correo'];
     $contrasena = $_POST['contrasena'];
