@@ -13,6 +13,7 @@ class AdministratorController {
     }
 
     public function createNewAlumno($correo, $contrasena, $recontrasena,$nombre, $grado, $seccion) {
+        echo "test controller 1";
         if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
             throw new Exception("El formato del correo electrónico no es válido.");
         }
@@ -33,7 +34,7 @@ class AdministratorController {
         }
 
         try {
-            $user_type = 'alumno';
+            echo "test controller 2";
             $this->model->createNewAlumno($correo, $contrasena, $nombre, $grado, $seccion);
             echo "Alumno creado exitosamente.";
         } catch (Exception $e) {
