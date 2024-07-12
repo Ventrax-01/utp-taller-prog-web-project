@@ -95,6 +95,7 @@ $alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'
                 aria-labelledby="listado-tab"
             >
                 <form id="formListadoAlumnos"  method="post" action="alumnos.php" value="cargarAlumnos">
+                    <input type="hidden" name="form_type" value="cargarAlumnos">
                     <h3 class="module-tag-header">Listado de Alumnos</h3>
                     <div class="py-1">
                         
@@ -166,8 +167,8 @@ $alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'
                 role="tabpanel"
                 aria-labelledby="añadir-tab"
             >
-                <form class="w-50" method="post" action="alumnos.php" value="crearAlumno">
-                    <input type="hidden" name="form_type" value="crear_alumno">
+                <form class="w-50" method="post" action="alumnos.php">
+                    <input type="hidden" name="form_type" value="crearAlumno">
                     <h3 class="module-tag-header py-2">Registro de Alumnos</h3>
                     <div class="mb-2">
                         <label for="correo" class="form-label">Correo</label>
