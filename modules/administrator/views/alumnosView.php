@@ -9,7 +9,9 @@ $alumnosList = $administratorControler->getAlumnosList($_SESSION['user_id']);
 #echo $alumnosList;
 echo "  ";
 
-echo $alumnosList;
+foreach ($notas as $nota): 
+    echo $nota;
+endforeach; 
 
 ?>
 
