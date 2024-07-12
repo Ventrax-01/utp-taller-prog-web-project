@@ -2,18 +2,20 @@
 session_start();
 define('MAIN_PATH', '/var/www/xyz.lucianogiraldo.com');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
-    $administratorControler = new AdministratorController();
 
+require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorController.php';
+$administratorControler = new AdministratorController();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['gradoSeleccionado'] = isset($_POST['selectGrado']) ? $_POST['selectGrado'] : null;
     $_SESSION['seccionSeleccionada'] = isset($_POST['selectSeccion']) ? $_POST['selectSeccion'] : null;
-
-    echo $_SESSION['gradoSeleccionado'];
-    echo " test ";
-    echo $_SESSION['seccionSeleccionada'];
-    $alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'],$_SESSION['seccionSeleccionada']);
 }
+
+
+echo $_SESSION['gradoSeleccionado'];
+echo " test ";
+echo $_SESSION['seccionSeleccionada'];
+$alumnos = $administratorControler->getAlumnosList($_SESSION['gradoSeleccionado'],$_SESSION['seccionSeleccionada']);
+
 ?>
 
 <div class="px-2 px-sm-5 px-lg-5">
