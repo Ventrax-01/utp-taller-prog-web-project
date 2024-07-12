@@ -8,12 +8,8 @@ class AdministratorModel {
 
     public function __construct() {
         
-        
-        
         echo "Model construct ";
-        $this->db = $dbConnection;
-
-        $this->conn = $dbConnection;
+        $this->db = $conn;
     }
 
     public function getAlumnosList($alumno_id, $filtro1 = null, $filtro2 = null) {
