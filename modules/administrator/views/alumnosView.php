@@ -112,85 +112,15 @@ $alumnos = $administratorControler->getAlumnosList();
                                 <td><?php echo htmlspecialchars($alumno['seccion']); ?></td>
                                 <td><?php echo htmlspecialchars($alumno['promedio']); ?></td>
                                 <td><?php echo htmlspecialchars($alumno['correo']); ?></td>
+                                <td>
+                                    <button type="button" class="">
+                                        <i
+                                            class="fa-solid fa-magnifying-glass fa-xs"
+                                        ></i>
+                                    </button>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
-                    
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Lorem ipsum dolor sit</td>
-                            <td>1er. Prim</td>
-                            <td>A</td>
-                            <td>15.6</td>
-                            <td>lorem.ipsum@colegioxyz.com</td>
-                            <td>
-                                <button type="button" class="">
-                                    <i
-                                        class="fa-solid fa-magnifying-glass fa-xs"
-                                    ></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Lorem ipsum dolor sit</td>
-                            <td>2er. Prim</td>
-                            <td>B</td>
-                            <td>15.6</td>
-                            <td>lorem.ipsum@colegioxyz.com</td>
-                            <td>
-                                <button type="button" class="">
-                                    <i
-                                        class="fa-solid fa-magnifying-glass fa-xs"
-                                    ></i>
-                                </button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Lorem ipsum dolor sit</td>
-                            <td>4er. Prim</td>
-                            <td>C</td>
-                            <td>15.6</td>
-                            <td>lorem.ipsum@colegioxyz.com</td>
-                            <td>
-                                <button type="button" class="">
-                                    <i
-                                        class="fa-solid fa-magnifying-glass fa-xs"
-                                    ></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Lorem ipsum dolor sit</td>
-                            <td>1er. Prim</td>
-                            <td>A</td>
-                            <td>15.6</td>
-                            <td>lorem.ipsum@colegioxyz.com</td>
-                            <td>
-                                <button type="button" class="">
-                                    <i
-                                        class="fa-solid fa-magnifying-glass fa-xs"
-                                    ></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Lorem ipsum dolor sit</td>
-                            <td>1er. Prim</td>
-                            <td>A</td>
-                            <td>15.6</td>
-                            <td>lorem.ipsum@colegioxyz.com</td>
-                            <td>
-                                <button type="button" class="">
-                                    <i
-                                        class="fa-solid fa-magnifying-glass fa-xs"
-                                    ></i>
-                                </button>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
