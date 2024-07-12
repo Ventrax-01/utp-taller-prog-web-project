@@ -34,7 +34,7 @@ class AdministratorModel {
         ";
         // Añadir condiciones para filtros
         if ($filtro1 !== null) {
-            $sql .= " AND a.grado = ':filtro1'";
+            $sql .= " AND a.grado = :filtro1";
         }
 
         if ($filtro2 !== null) {
