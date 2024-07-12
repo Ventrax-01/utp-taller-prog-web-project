@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 role="tabpanel"
                 aria-labelledby="listado-tab"
             >
-                <form id="formListadoAlumnos"  method="post" action="alumnosView.php">
+                <form id="formListadoAlumnos"  method="post" action="../alumnos.php">
                     <h3 class="module-tag-header">Listado de Alumnos</h3>
                     <div class="py-1">
                         
@@ -505,7 +505,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
+<!-- <script>
     $(document).ready(function() {
         // Capturar el evento de clic en el botón Buscar
         $('#formBusqueda').on('submit', function(e) {
@@ -524,4 +524,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             console.log('Sección seleccionada:', seccionSeleccionada);
         });
     });
-</script>
+</script> -->
