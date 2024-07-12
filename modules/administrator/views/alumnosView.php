@@ -5,7 +5,7 @@ require_once MAIN_PATH . '/modules/administrator/controllers/AdministratorContro
 echo "2";
 $administratorControler = new AdministratorController();
 echo "3";
-$alumnosList = $controller->getAlumnosList($_SESSION['user_id']);
+$alumnosList = $administratorControler->getAlumnosList($_SESSION['user_id']);
 #echo $alumnosList;
 echo "4";
 

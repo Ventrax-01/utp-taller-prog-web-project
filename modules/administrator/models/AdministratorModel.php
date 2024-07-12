@@ -35,7 +35,7 @@ class AdministratorModel {
             FROM alumnos a
             LEFT JOIN usuario u ON u.user_id = a.user_id 
             LEFT JOIN notas n ON n.alumno_id = a.id 
-            WHERE a.id = :alumno_id
+            WHERE 1=1
         ";
         echo " query ";
         // Añadir condiciones para filtros
@@ -51,7 +51,6 @@ class AdministratorModel {
         $sql .= " GROUP BY a.id";
 
         $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':alumno_id', $alumno_id);
 
         if ($filtro1 !== null) {
             $stmt->bindParam(':filtro1', $filtro1);
