@@ -142,7 +142,7 @@ foreach ($grados as $grado) {
                                     <td><?php echo htmlspecialchars($grado['cantidad']); ?></td>
                                 </tr>
                             <?php endforeach; ?>
-                            <canvas id="myBarChart" width="400" height="200"></canvas>
+                            <canvas id="myBarChart" width="200" height="100"></canvas>
                             <script>
                                 // Obtener los datos de PHP
                                 const labels = <?php echo json_encode($labels); ?>;
