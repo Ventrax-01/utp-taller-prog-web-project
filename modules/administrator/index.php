@@ -10,6 +10,7 @@
             src="https://kit.fontawesome.com/c4f86b63aa.js"
             crossorigin="anonymous"
         ></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <link
             href="/styles/bootstrap-5.3.3-dist/css/bootstrap.min.css"
             rel="stylesheet"

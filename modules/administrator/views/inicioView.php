@@ -7,6 +7,11 @@ $administratorController = new AdministratorController();
 $cursos = $administratorController->getCursos();
 $grados = $administratorController->getGrados();
 
+foreach ($grados as $grado) {
+    $labels[] = $grado['grado'] . ' ' . $grado['seccion']; // Concatenar grado y sección para la etiqueta
+    $data[] = $grado['cantidad'];
+}
+
 ?>
 
 <div class="px-2 px-sm-5 px-lg-5">
@@ -137,6 +142,35 @@ $grados = $administratorController->getGrados();
                                     <td><?php echo htmlspecialchars($grado['cantidad']); ?></td>
                                 </tr>
                             <?php endforeach; ?>
+                            <canvas id="myBarChart" width="400" height="200"></canvas>
+                            <script>
+                                // Obtener los datos de PHP
+                                const labels = <?php echo json_encode($labels); ?>;
+                                const data = <?php echo json_encode($data); ?>;
+                                
+                                // Crear el gráfico de barras
+                                const ctx = document.getElementById('myBarChart').getContext('2d');
+                                const myBarChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            label: 'Cantidad de Alumnos',
+                                            data: data,
+                                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                            borderColor: 'rgba(54, 162, 235, 1)',
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    }
+                                });
+                            </script>
                         </tbody>
                     </table>
                 </div>
