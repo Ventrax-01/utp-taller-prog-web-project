@@ -60,7 +60,7 @@
                     ></a
                 >
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a
                     class="nav-link d-inline-block offcanvas-nav-link"
                     href="#"
@@ -98,7 +98,7 @@
                         >Finanzas</span
                     ></a
                 >
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>
