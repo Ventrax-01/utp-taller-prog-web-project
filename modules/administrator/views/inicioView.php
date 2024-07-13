@@ -118,7 +118,7 @@ foreach ($grados as $grado) {
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-lg-8">
             <div
                 class="cell bg-danger bg-opacity-10 border border-danger rounded"
             >
@@ -173,23 +173,6 @@ foreach ($grados as $grado) {
                             </script>
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4">
-            <div
-                class="cell bg-danger bg-opacity-10 border border-danger rounded"
-            >
-                <div class="m-3">
-                    <h3 class="module-tag-header">Finanzas</h3>
-                    <span
-                        >Lorem ipsum dolor sit, amet consectetur
-                        adipisicing elit. Sapiente laborum ipsum hic
-                        itaque, obcaecati aliquid nam optio, eum
-                        consequatur nostrum atque, autem alias harum
-                        pariatur maiores quos! Ad, itaque
-                        cupiditate.</span
-                    >
                 </div>
             </div>
         </div>
